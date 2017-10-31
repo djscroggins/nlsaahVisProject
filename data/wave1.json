@@ -2,15 +2,51 @@
   "name": "top",
   "children": [
     {
-      "name": "section1",
+      "name": "Daily Activities",
       "children": [
         {
-          "name": "question1",
-          "children": [{"name": "answer1", "size": 2}, {"name": "answer2", "size": 3}]
+          "name": "H1DA1",
+          "children": [{"name": "0", "size": 255}, {"name": "1", "size": 1759}, {"name": "2", "size": 2016}, {"name": "3", "size": 2466}, {"name": "6", "size": 2}, {"name": "8", "size": 6}]
         },
         {
-          "name": "question2",
-          "children": [{"name": "answer2", "size": 5}]
+          "name": "H1DA2",
+          "children": [{"name": "0", "size": 1416}, {"name": "1", "size": 2163}, {"name": "2", "size": 1439}, {"name": "3", "size": 1479}, {"name": "6", "size": 2}, {"name": "8", "size": 5}]
+        },
+        {
+          "name": "H1DA3",
+          "children": [{"name": "0", "size": 223}, {"name": "1", "size": 1031}, {"name": "2", "size": 1433}, {"name": "3", "size": 3811}, {"name": "6", "size": 2}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1DA4",
+          "children": [{"name": "0", "size": 4101}, {"name": "1", "size": 1341}, {"name": "2", "size": 551}, {"name": "3", "size": 505}, {"name": "6", "size": 2}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1DA5",
+          "children": [{"name": "0", "size": 1908}, {"name": "1", "size": 1786}, {"name": "2", "size": 1222}, {"name": "3", "size": 1582}, {"name": "6", "size": 2}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1DA6",
+          "children": [{"name": "0", "size": 1072}, {"name": "1", "size": 2059}, {"name": "2", "size": 1618}, {"name": "3", "size": 1749}, {"name": "6", "size": 2}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1DA7",
+          "children": [{"name": "0", "size": 635}, {"name": "1", "size": 1515}, {"name": "2", "size": 1753}, {"name": "3", "size": 2595}, {"name": "6", "size": 2}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1DA8",
+          "children": [{"name": "0", "size": 136}, {"name": "range", "size": 6341}, {"name": "996", "size": 3}, {"name": "998", "size": 24}]
+        },
+        {
+          "name": "H1DA9",
+          "children": [{"name": "0", "size": 1554}, {"name": "range", "size": 4930}, {"name": "996", "size": 3}, {"name": "998", "size": 16}, {"name": "missing", "size": 1}]
+        },
+        {
+          "name": "H1DA10",
+          "children": [{"name": "0", "size": 3076}, {"name": "range", "size": 3416}, {"name": "996", "size": 2}, {"name": "998", "size": 10}]
+        },
+        {
+          "name": "H1DA11",
+          "children": [{"name": "0", "size": 335}, {"name": "range", "size": 6145}, {"name": "996", "size": 3}, {"name": "998", "size": 21}]
         }
       ]
     },
@@ -19,11 +55,11 @@
       "children": [
         {
           "name": "question1",
-          "children": [{"name": "answer1", "size": 2}, {"name": "answer2", "size": 3}]
+          "children": [{"name": "answer1", "size": 2000}, {"name": "answer2", "size": 3000}]
         },
         {
           "name": "question2",
-          "children": [{"name": "answer2", "size": 5}]
+          "children": [{"name": "answer2", "size": 5000}]
         }
       ]
     }
