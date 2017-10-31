@@ -10,7 +10,6 @@
  */
 
 // TODO: Refactor to d3.v4
-
 var drawSunburst = function (fileIn, svgIn, inputIn, widthIn, heightIn) {
 
     var width = widthIn,

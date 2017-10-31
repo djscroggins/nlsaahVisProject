@@ -13,6 +13,7 @@
  */
 
 // TODO: Refactor to d3.v4
+// TODO: Rename function to drawSunburstPartition
 
 var drawSunburst = function (fileIn, svgIn, inputIn, widthIn, heightIn) {
 

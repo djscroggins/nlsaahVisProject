@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <Title>Wave 1 Sunburst</Title>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <link rel="stylesheet" href="../css/sunburst_bilevel.css">
+    <script type="text/javascript" src="../js/sunburst_bilevel_partition.js"></script>
+
 </head>
 <body>
-<p>Sunburst Wave 1</p>
+
+    <svg id="wave1"></svg>
+
+    <script>
+        drawSuburstBilevelPartition("../data/flare.json", "#wave1");
+    </script>
 </body>
 </html>
