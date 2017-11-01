@@ -315,22 +315,95 @@
         },
         {
           "name": "H1GH38",
-          "children": [{"name": "1", "size": 64}, {"name": "2", "size": 157}, {"name": "3", "size": 342}, {"name": "4", "size": 824}, {"name": "7", "size": 5114}, {"name": "8", "size": 2}, {"name": "missing", "size": 1}]},
-        {
-          "name": "question2",
-          "children": [{"name": "answer2", "size": 5000}]
+          "children": [{"name": "1", "size": 64}, {"name": "2", "size": 157}, {"name": "3", "size": 342}, {"name": "4", "size": 824}, {"name": "7", "size": 5114}, {"name": "8", "size": 2}, {"name": "missing", "size": 1}]
         },
         {
-          "name": "question2",
-          "children": [{"name": "answer2", "size": 5000}]
+          "name": "H1GH39",
+          "children": [{"name": "0", "size": 3834}, {"name": "1", "size": 237}, {"name": "2", "size": 175}, {"name": "3", "size": 149}, {"name": "4", "size": 218}, {"name": "5", "size": 1884}, {"name": "6", "size": 3}, {"name": "8", "size": 4}]
         },
         {
-          "name": "question2",
-          "children": [{"name": "answer2", "size": 5000}]
+          "name": "H1GH40",
+          "children": [{"name": "0", "size": 5162}, {"name": "1", "size": 794}, {"name": "2", "size": 217}, {"name": "3", "size": 165}, {"name": "4", "size": 159}, {"name": "6", "size": 3}, {"name": "8", "size": 4}]
         },
         {
-          "name": "question2",
-          "children": [{"name": "answer2", "size": 5000}]
+          "name": "H1GH41",
+          "children": [{"name": "0", "size": 421}, {"name": "1", "size": 80}, {"name": "2", "size": 72}, {"name": "3", "size": 85}, {"name": "4", "size": 677}, {"name": "6", "size": 3}, {"name": "7", "size": 5162}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1GH42",
+          "children": [{"name": "0", "size": 331}, {"name": "1", "size": 496}, {"name": "2", "size": 915}, {"name": "3", "size": 1395}, {"name": "4", "size": 3360}, {"name": "6", "size": 3}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1GH43",
+          "children": [{"name": "0", "size": 6275}, {"name": "1", "size": 111}, {"name": "2", "size": 70}, {"name": "3", "size": 17}, {"name": "4", "size": 20}, {"name": "6", "size": 6}, {"name": "8", "size": 4}, {"name": "9", "size": 1}]
+        },
+        {
+          "name": "H1GH44",
+          "children": [{"name": "1", "size": 104}, {"name": "2", "size": 226}, {"name": "3", "size": 1082}, {"name": "4", "size": 2007}, {"name": "5", "size": 3030}, {"name": "6", "size": 11}, {"name": "8", "size": 44}]
+        },
+        {
+          "name": "H1GH45",
+          "children": [{"name": "range", "size": 6504}]
+        },
+        {
+          "name": "H1GH46",
+          "children": [{"name": "1", "size": 72}, {"name": "2", "size": 191}, {"name": "3", "size": 878}, {"name": "4", "size": 1827}, {"name": "5", "size": 3455}, {"name": "6", "size": 20}, {"name": "8", "size": 60}, {"name": "9", "size": 1}]
+        },
+        {
+          "name": "H1GH47",
+          "children": [{"name": "answer2", "size": 6504}]
+        },
+        {
+          "name": "H1GH48",
+          "children": [{"name": "0", "size": 4241}, {"name": "1", "size": 1941}, {"name": "2", "size": 230}, {"name": "3", "size": 38}, {"name": "4", "size": 19}, {"name": "6", "size": 8}, {"name": "8", "size": 16}, {"name": "9", "size": 11}]
+        },
+        {
+          "name": "H1GH49",
+          "children": [{"name": "0", "size": 4862}, {"name": "1", "size": 1492}, {"name": "2", "size": 97}, {"name": "3", "size": 24}, {"name": "4", "size": 13}, {"name": "6", "size": 4}, {"name": "8", "size": 12}]
+        },
+        {
+          "name": "H1GH50",
+          "children": [{"name": "range", "size": 6461}, {"name": "999996", "size": 13}, {"name": "999998", "size": 28}, {"name": "999999", "size": 2}]
+        },
+        {
+          "name": "H1GH51",
+          "children": [{"name": "range", "size": 6477}, {"name": "96", "size": 5}, {"name": "98", "size": 22}]
+        },
+        {
+          "name": "H1GH52",
+          "children": [{"name": "0", "size": 1720}, {"name": "1", "size": 1941}, {"name": "2", "size": 4772}, {"name": "6", "size": 4}, {"name": "8", "size": 8}]
+        },
+        {
+          "name": "H1GH53",
+          "children": [{"name": "0", "size": 5632}, {"name": "1", "size": 856}, {"name": "6", "size": 7}, {"name": "8", "size": 8}, {"name": "9", "size": 1}]
+        },
+        {
+          "name": "H1GH54",
+          "children": [{"name": "1", "size": 2871}, {"name": "2", "size": 2681}, {"name": "3", "size": 658}, {"name": "4", "size": 145}, {"name": "5", "size": 123}, {"name": "6", "size": 10}, {"name": "8", "size": 14}, {"name": "9", "size": 2}]
+        },
+        {
+          "name": "H1GH55",
+          "children": [{"name": "0", "size": 6190}, {"name": "1", "size": 304}, {"name": "6", "size": 4}, {"name": "8", "size": 6}]
+        },
+        {
+          "name": "H1GH56",
+          "children": [{"name": "0", "size": 2818}, {"name": "1", "size": 3676}, {"name": "6", "size": 4}, {"name": "8", "size": 6}]
+        },
+        {
+          "name": "H1GH57",
+          "children": [{"name": "0", "size": 5935}, {"name": "1", "size": 560}, {"name": "6", "size": 3}, {"name": "8", "size": 6}]
+        },
+        {
+          "name": "H1GH58",
+          "children": [{"name": "0", "size": 4871}, {"name": "1", "size": 1064}, {"name": "6", "size": 3}, {"name": "7", "size": 560}, {"name": "8", "size": 6}]
+        },
+        {
+          "name": "H1GH59A/B",
+          "children": [{"name": "4,0", "size": 2}, {"name": "4,2", "size": 4}, {"name": "4,4", "size": 2}, {"name": "4,5", "size": 5}, {"name": "4,6", "size": 8}, {"name": "4,7", "size": 9}, {"name": "4,8", "size": 16}, {"name": "4,9", "size": 37}, {"name": "4,10", "size": 39}, {"name": "4,11", "size": 93}, {"name": "5,0", "size": 237}, {"name": "5,1", "size": 247}, {"name": "5,2", "size": 432}, {"name": "5,3", "size": 560}, {"name": "5,4", "size": 662}, {"name": "5,5", "size": 540}, {"name": "5,6", "size": 650}, {"name": "5,7", "size": 548}, {"name": "5,8", "size": 465}, {"name": "5,9", "size": 392}, {"name": "5,10", "size": 364}, {"name": "5,11", "size": 339}, {"name": "6,0", "size": 306}, {"name": "6,1", "size": 183}, {"name": "6,2", "size": 133}, {"name": "6,3", "size": 69}, {"name": "6,4", "size": 29}, {"name": "6,5", "size": 18}, {"name": "6,6", "size": 5000}, {"name": "6,7", "size": 5}, {"name": "6,9", "size": 4}, {"name": "5,98", "size": 11}, {"name": "5,99", "size": 1}, {"name": "96,96", "size": 5}, {"name": "98,0", "size": 1}, {"name": "98,98", "size": 78}]
+        },
+        {
+          "name": "H1GH60",
+          "children": [{"name": "range", "size": 6348}, {"name": "996", "size": 32}, {"name": "998", "size": 121}, {"name": "999", "size": 3}]
         }
       ]
     },
@@ -349,3 +422,61 @@
     }
   ]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
