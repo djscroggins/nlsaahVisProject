@@ -19,21 +19,21 @@
     <svg id="button"></svg>
     <script>
 
-        function drawButton(svgIn) {
+        function drawLinkedButton(svgIn, widthIn, heightIn) {
 
 
-        var width = 449;
-        var height = 249;
+        var width = widthIn;
+        var height = heightIn;
         var word = "gongoozler";
 
         var holder = d3.select(svgIn)
-//            .append("svg")
             .attr("width", width)
             .attr("height", height);
 
         // draw a rectangle
         holder.append("a")
-            .attr("xlink:href", "http://en.wikipedia.org/wiki/"+word)
+            .attr("href", "http://en.wikipedia.org/wiki/"+word)
+            .attr("target", "_blank")
             .append("rect")
             .attr("x", 100)
             .attr("y", 50)
@@ -54,7 +54,7 @@
             .style("pointer-events", "none")
             .text(word);
         }
-        drawButton("#button");
+        drawLinkedButton("#button", 449, 249);
     </script>
 </div>
 
