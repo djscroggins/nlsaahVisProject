@@ -270,13 +270,52 @@
           "children": [{"name": "0", "size": 3208}, {"name": "1", "size": 1250}, {"name": "6", "size": 4}, {"name": "7", "size": 2037}, {"name": "8", "size": 5}]
         },
         {
-          "name": "question2",
-          "children": [{"name": "answer2", "size": 5000}]
+          "name": "H1GH31A",
+          "children": [{"name": "0", "size": 1083}, {"name": "1", "size": 152}, {"name": "7", "size": 5269}]
         },
         {
-          "name": "question2",
-          "children": [{"name": "answer2", "size": 5000}]
+          "name": "H1GH31B",
+          "children": [{"name": "0", "size": 647}, {"name": "1", "size": 588}, {"name": "7", "size": 5269}]
         },
+        {
+          "name": "H1GH31C",
+          "children": [{"name": "0", "size": 623}, {"name": "1", "size": 612}, {"name": "7", "size": 5269}]
+        },
+        {
+          "name": "H1GH31D",
+          "children": [{"name": "0", "size": 1097}, {"name": "1", "size": 152}, {"name": "7", "size": 5269}]
+        },
+        {
+          "name": "H1GH31F",
+          "children": [{"name": "0", "size": 1119}, {"name": "1", "size": 116}, {"name": "7", "size": 5269}]
+        },
+        {
+          "name": "H1GH31G",
+          "children": [{"name": "0", "size": 1058}, {"name": "1", "size": 177}, {"name": "7", "size": 5269}]
+        },
+        {
+          "name": "H1GH32",
+          "children": [{"name": "0", "size": 1120}, {"name": "1", "size": 2087}, {"name": "2", "size": 3290}, {"name": "6", "size": 3}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1GH33",
+          "children": [{"name": "0", "size": 1439}, {"name": "1", "size": 2054}, {"name": "2", "size": 3004}, {"name": "6", "size": 3}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1GH34",
+          "children": [{"name": "0", "size": 2102}, {"name": "1", "size": 2535}, {"name": "2", "size": 1860}, {"name": "6", "size": 3}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1GH35",
+          "children": [{"name": "0", "size": 555}, {"name": "1", "size": 1996}, {"name": "2", "size": 3945}, {"name": "6", "size": 3}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1GH36",
+          "children": [{"name": "0", "size": 3011}, {"name": "1", "size": 2103}, {"name": "2", "size": 1383}, {"name": "6", "size": 3}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H1GH38",
+          "children": [{"name": "1", "size": 64}, {"name": "2", "size": 157}, {"name": "3", "size": 342}, {"name": "4", "size": 824}, {"name": "7", "size": 5114}, {"name": "8", "size": 2}, {"name": "missing", "size": 1}]},
         {
           "name": "question2",
           "children": [{"name": "answer2", "size": 5000}]
