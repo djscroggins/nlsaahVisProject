@@ -408,6 +408,154 @@
       ]
     },
     {
+      "name": "Access to Health Services",
+      "children": [
+        {
+          "name": "H1HS1",
+          "children": [{"name": "0", "size": 2137}, {"name": "1", "size": 4340}, {"name": "6", "size": 5}, {"name": "8", "size": 22}]
+        },
+        {
+          "name": "H1HS2A",
+          "children": [{"name": "0", "size": 1867}, {"name": "1", "size": 2471}, {"name": "7", "size": 2164}, {"name": "8", "size": 2}]
+        },
+        {
+          "name": "H1HS2B",
+          "children": [{"name": "0", "size": 3462}, {"name": "1", "size": 876}, {"name": "7", "size": 2164}, {"name": "8", "size": 2}]
+        },
+        {
+          "name": "H1HS2C",
+          "children": [{"name": "0", "size": 3629}, {"name": "1", "size": 709}, {"name": "7", "size": 2164}, {"name": "8", "size": 2}]
+        },
+        {
+          "name": "H1HS2D",
+          "children": [{"name": "0", "size": 3854}, {"name": "1", "size": 484}, {"name": "7", "size": 2164}, {"name": "8", "size": 2}]
+        },
+        {
+          "name": "H1HS2E",
+          "children": [{"name": "0", "size": 4189}, {"name": "1", "size": 149}, {"name": "7", "size": 2164}, {"name": "8", "size": 2}]
+        },
+        {
+          "name": "H1HS3",
+          "children": [{"name": "0", "size": 4189}, {"name": "1", "size": 149}, {"name": "7", "size": 2164}, {"name": "8", "size": 2}]
+        },
+        {
+          "name": "H1HS4A",
+          "children": [{"name": "0", "size": 546}, {"name": "1", "size": 267}, {"name": "7", "size": 5691}]
+        },
+        {
+          "name": "H1HS4B",
+          "children": [{"name": "0", "size": 691}, {"name": "1", "size": 122}, {"name": "7", "size": 5691}]
+        },
+        {
+          "name": "H1HS4C",
+          "children": [{"name": "0", "size": 525}, {"name": "1", "size": 288}, {"name": "7", "size": 5691}]
+        },
+        {
+          "name": "H1HS4D",
+          "children": [{"name": "0", "size": 747}, {"name": "1", "size": 66}, {"name": "7", "size": 5691}]
+        },
+        {
+          "name": "H1HS4E",
+          "children": [{"name": "0", "size": 652}, {"name": "1", "size": 161}, {"name": "7", "size": 5691}]
+        },
+        {
+          "name": "H1HS5",
+          "children": [{"name": "0", "size": 6327}, {"name": "1", "size": 162}, {"name": "6", "size": 6}, {"name": "8", "size": 9}]
+        },
+        {
+          "name": "H1HS6A",
+          "children": [{"name": "0", "size": 153}, {"name": "1", "size": 9}, {"name": "7", "size": 6342}]
+        },
+        {
+          "name": "H1HS6B",
+          "children": [{"name": "0", "size": 134}, {"name": "1", "size": 28}, {"name": "7", "size": 6342}]
+        },
+        {
+          "name": "H1HS6C",
+          "children": [{"name": "0", "size": 104}, {"name": "1", "size": 58}, {"name": "7", "size": 6342}]
+        },      {
+          "name": "H1HS6D",
+          "children": [{"name": "0", "size": 142}, {"name": "1", "size": 20}, {"name": "7", "size": 6342}]
+        },
+        {
+          "name": "H1HS6E",
+          "children": [{"name": "0", "size": 113}, {"name": "1", "size": 49}, {"name": "7", "size": 6342}]
+        },
+        {
+          "name": "H1HS7",
+          "children": [{"name": "0", "size": 6115}, {"name": "1", "size": 369}, {"name": "6", "size": 7}, {"name": "8", "size": 13}]
+        },
+        {
+          "name": "H1HS8A",
+          "children": [{"name": "0", "size": 265}, {"name": "1", "size": 103}, {"name": "7", "size": 6135}, {"name": "8", "size": 1}]
+        },
+        {
+          "name": "H1HS8B",
+          "children": [{"name": "0", "size": 237}, {"name": "1", "size": 131}, {"name": "7", "size": 6135}, {"name": "8", "size": 1}]
+        },
+        {
+          "name": "H1HS8C",
+          "children": [{"name": "0", "size": 329}, {"name": "1", "size": 39}, {"name": "7", "size": 6135}, {"name": "8", "size": 1}]
+        },
+        {
+          "name": "H1HS8D",
+          "children": [{"name": "0", "size": 337}, {"name": "1", "size": 31}, {"name": "7", "size": 6135}, {"name": "8", "size": 1}]
+        },
+        {
+          "name": "H1HS8E",
+          "children": [{"name": "0", "size": 286}, {"name": "1", "size": 82}, {"name": "7", "size": 6135}, {"name": "8", "size": 1}]
+        },
+        {
+          "name": "H1HS9",
+          "children": [{"name": "0", "size": 6119}, {"name": "1", "size": 364}, {"name": "6", "size": 9}, {"name": "8", "size": 12}]
+        },
+        {
+          "name": "H1HS10A",
+          "children": [{"name": "0", "size": 264}, {"name": "1", "size": 100}, {"name": "7", "size": 6140}]
+        },
+        {
+          "name": "H1HS10B",
+          "children": [{"name": "0", "size": 208}, {"name": "1", "size": 156}, {"name": "7", "size": 6140}]
+        },
+        {
+          "name": "H1HS10C",
+          "children": [{"name": "0", "size": 335}, {"name": "1", "size": 29}, {"name": "7", "size": 6140}]
+        },
+        {
+          "name": "H1HS10D",
+          "children": [{"name": "0", "size": 298}, {"name": "1", "size": 66}, {"name": "7", "size": 6140}]
+        },
+        {
+          "name": "H1HS10E",
+          "children": [{"name": "0", "size": 329}, {"name": "1", "size": 35}, {"name": "7", "size": 6140}]
+        },
+        {
+          "name": "H1HS11",
+          "children": [{"name": "0", "size": 3178}, {"name": "1", "size": 156}, {"name": "6", "size": 3}, {"name": "7", "size": 3152}, {"name": "8", "size": 15}]
+        },
+        {
+          "name": "H1HS12A",
+          "children": [{"name": "0", "size": 85}, {"name": "1", "size": 71}, {"name": "7", "size": 6348}]
+        },
+        {
+          "name": "H1HS12B",
+          "children": [{"name": "0", "size": 96}, {"name": "1", "size": 60}, {"name": "7", "size": 6348}]
+        },
+        {
+          "name": "H1HS12C",
+          "children": [{"name": "0", "size": 149}, {"name": "1", "size": 7}, {"name": "7", "size": 6348}]
+        },
+        {
+          "name": "H1HS12D",
+          "children": [{"name": "0", "size": 118}, {"name": "1", "size": 38}, {"name": "7", "size": 6348}]
+        },
+        {
+          "name": "H1HS12E",
+          "children": [{"name": "0", "size": 151}, {"name": "1", "size": 5}, {"name": "7", "size": 6348}]
+        }
+      ]
+    },
+    {
       "name": "section2",
       "children": [
         {
