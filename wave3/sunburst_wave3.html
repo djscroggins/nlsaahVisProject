@@ -5,19 +5,27 @@
     <title>Wave 3 Sunburst</title>
     <script src="//d3js.org/d3.v3.min.js"></script>
     <link rel="stylesheet" href="../css/sunburst_bilevel.css">
+    <link rel="stylesheet" href="../css/general.css">
     <script type="text/javascript" src="../js/sunburst_bilevel_partition.js"></script>
+    <script type="text/javascript" src="../js/linked_button.js"></script>
 
 </head>
 <body>
-<p>Sunburst Wave 2</p>
 
-<svg id="wave3"></svg>
+<div>
+    <svg id="wave3"></svg>
 
-<script>
-    //        drawSuburstBilevelPartition("../data/flare.json", "#wave1");
-    //        drawSuburstBilevelPartition("../data/project_test.json", "#wave1");
-    drawSuburstBilevelPartition("../data/wave1.json", "#wave3");
-</script>
+    <script>
+        drawSuburstBilevelPartition("../data/wave1.json", "#wave3");
+    </script>
+</div>
+
+<div>
+    <svg id="button"></svg>
+    <script>
+        drawLinkedButton("#button", 960, 200, 100, 200, "wave3placeholder.html", "Explore Wave 3");
+    </script>
+</div>
 
 </body>
 </html>
