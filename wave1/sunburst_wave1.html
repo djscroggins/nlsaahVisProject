@@ -22,28 +22,35 @@
 <div class="legend4">
     <script>
 
+//        var margin = {top: 350, right: 480, bottom: 350, left: 480};
         var legendVals2 = ["Daily Activities", "General Health", "Access to Healthcare", "Tobacco"];
-        var color = d3.scale.category10();
-        var width = 960;
-        var height = 80;
+        var color = d3.scale.ordinal()
+            .domain(legendVals2)
+            .range(["#FE812A", "#30A033", "#D42E31", "#9367BB" ]);
+//        Modularize here
+        function drawLegend(legValsIn, colorIn, divClassIn, offSetIn) {
+        var width = 960; //Make parameter
+        var height = 80; //Make parameter
 
-        var svgLegned4 = d3.select(".legend4").append("svg")
+        var svgLegned4 = d3.select(divClassIn).append("svg")
             .attr("width", width)
             .attr("height", height - 50);
 
         var dataL = 0;
-        var offset = 250;
+        var offset = offSetIn; //Make parameter
 
         var legend4 = svgLegned4.selectAll('.legends4')
-            .data(legendVals2)
+            .data(legValsIn)
             .enter().append('g')
             .attr("class", "legends4")
             .attr("transform", function (d, i) {
                 if (i === 0) {
                     dataL = d.length + offset;
+                    console.log(d.length);
                     return "translate(0,0)"
                 } else {
                     var newdataL = dataL;
+                    console.log(d.length);
                     dataL +=  d.length + offset;
                     return "translate(" + (newdataL) + ",0)"
                 }
@@ -55,7 +62,7 @@
             .attr("width", 10)
             .attr("height", 10)
             .style("fill", function (d, i) {
-                return color(i)
+                return colorIn(i)
             });
 
         legend4.append('text')
@@ -68,7 +75,8 @@
             .attr("class", "textselected")
             .style("text-anchor", "start")
             .style("font-size", 15)
-
+        }
+        drawLegend(legendVals2, color, ".legend4", 270);
     </script>
 
 </div>
