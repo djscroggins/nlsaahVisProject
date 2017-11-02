@@ -1,1 +1,10 @@
 /*Project-wide styles*/
+
+.center-clear {
+    text-align: center;
+    clear: both;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

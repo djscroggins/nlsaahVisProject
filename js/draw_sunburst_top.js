@@ -1,6 +1,9 @@
 /**
  * Created by davidscroggins on 10/30/17.
  */
+/**
+ * Created by davidscroggins on 10/30/17.
+ */
 
 /**
  * Draws Sunburst style tree map with transition effects for size and count
@@ -10,13 +13,18 @@
  */
 
 // TODO: Refactor to d3.v4
+// TODO: Rename function to drawSunburstPartition
 
 var drawSunburst = function (fileIn, svgIn, inputIn, widthIn, heightIn) {
 
     var width = widthIn,
         height = heightIn,
         radius = Math.min(width, height) / 2,
-        color = d3.scale.category20c();
+        color = d3.scale.category10(),
+        // color = d3.scale.ordinal()
+        //     .domain(legVals)
+        //     .range(["#FE812A", "#30A033", "#D42E31", "#9367BB"]);
+        pattern = /Wave/;
 
     var svg = d3.select(svgIn)
         .attr("width", width)
@@ -35,13 +43,18 @@ var drawSunburst = function (fileIn, svgIn, inputIn, widthIn, heightIn) {
         .innerRadius(function(d) { return Math.sqrt(d.y); })
         .outerRadius(function(d) { return Math.sqrt(d.y + d.dy); });
 
+    var x = d3.scale.linear()
+        .range([0, 2 * Math.PI]);
+
 
     d3.json(fileIn, function(error, root) {
         if (error) throw error;
 
-        var path = svg.datum(root).selectAll("path")
+        var g = svg.datum(root).selectAll("path")
             .data(partition.nodes)
-            .enter().append("path")
+            .enter().append("g");
+
+        var path = g.append("path")
             .attr("display", function(d) { return d.depth ? null : "none"; }) // hide inner ring
             .attr("d", arc)
             .style("stroke", "#fff")
@@ -49,13 +62,40 @@ var drawSunburst = function (fileIn, svgIn, inputIn, widthIn, heightIn) {
             .style("fill-rule", "evenodd")
             .each(stash);
 
-        path.selectAll(".node")
-            .append("text")
+        var text = g.append("text")
             .attr("transform", function(d) {
-                return "translate(" + arc.centroid(d) + ")rotate(" + computeTextRotation(d) + ")"; })
-            .attr("dx", "-20") // radius margin
-            .attr("dy", ".5em") // rotation align
-            .text(function(d) { return d.parent ? d.data.name : "" });
+                return d.name !== "top" ? "translate(" + arc.centroid(d) + ")rotate(" + computeTextRotation(d) + ")" : null;
+            })
+            .attr("text-anchor", "middle")
+            .attr("dx", "0") // margin
+            .attr("dy", ".35em") // vertical-align
+            .attr("font-size", function (d) {
+                return d.name === "top" ? "35px" : null;
+            })
+            .attr("font-weight", function (d) {
+                return pattern.test(d.name) ? "bold" : "normal";
+            })
+            .attr("text-decoration", function (d) {
+                return pattern.test(d.name) ? "underline" : null;
+            })
+            .text(function (d) {
+                // var pattern = /Wave/;
+                // return d.name === "top" ? null : d.name;
+                return d.name === "top" ? "Compare All Waves" : pattern.test(d.name) ? d.name :
+                    d.name === "total" ? d.size : null;
+            })
+            .on("click", function (d) {
+                // var pattern = /Wave/;
+                d.name === "top" ? window.open("waves_cross/waves_cross_placeholder.html") :
+                pattern.test(d.name) ? window.open(d.link) :
+                null;
+            })
+            .on("mouseover", function (d) {
+                d.name === "top" ? d3.select(this).style("fill", "red") : null;
+            })
+            .on("mouseout", function () {
+                d3.select(this).style("fill", "black");
+            });
 
         d3.selectAll(inputIn).on("change", function change() {
             var value = this.value === "count"
@@ -85,6 +125,11 @@ var drawSunburst = function (fileIn, svgIn, inputIn, widthIn, heightIn) {
             a.dx0 = b.dx;
             return arc(b);
         };
+    }
+
+    function computeTextRotation(d) {
+        var ang = (d.x + d.dx / 2 - Math.PI / 2) / Math.PI * 180;
+        return (ang > 90) ? 180 + ang : ang;
     }
 
     d3.select(self.frameElement).style("height", height + "px");

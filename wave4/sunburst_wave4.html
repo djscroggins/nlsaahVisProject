@@ -2,9 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Wave 4 Sunburst</title>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <link rel="stylesheet" href="../css/sunburst_bilevel.css">
+    <link rel="stylesheet" href="../css/general.css">
+    <script type="text/javascript" src="../js/sunburst_bilevel_partition.js"></script>
+    <script type="text/javascript" src="../js/linked_button.js"></script>
+
 </head>
 <body>
-<p>Sunburst Wave 4</p>
+
+<div>
+    <svg id="wave4"></svg>
+
+    <script>
+
+        drawSuburstBilevelPartition("../data/wave1.json", "#wave4");
+    </script>
+</div>
+
+<div>
+    <svg id="button"></svg>
+    <script>
+        drawLinkedButton("#button", 960, 200, 100, 200, "wave4placeholder.html", "Explore Wave 4");
+    </script>
+</div>
+
 </body>
 </html>
+
+<!--TODO: Change to wave4.json-->
