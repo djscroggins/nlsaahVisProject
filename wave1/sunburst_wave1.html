@@ -21,25 +21,25 @@
 
 <div class="legend4">
     <script>
-
 //        var margin = {top: 350, right: 480, bottom: 350, left: 480};
         var legendVals2 = ["Daily Activities", "General Health", "Access to Healthcare", "Tobacco"];
         var color = d3.scale.ordinal()
             .domain(legendVals2)
             .range(["#FE812A", "#30A033", "#D42E31", "#9367BB" ]);
+        var svgParams = {width: 960, height: 80};
 //        Modularize here
-        function drawLegend(legValsIn, colorIn, divClassIn, offSetIn) {
+        function drawLegend(legValsIn, colorIn, divClassIn, offSetIn, svgDimIn) {
         var width = 960; //Make parameter
         var height = 80; //Make parameter
 
-        var svgLegned4 = d3.select(divClassIn).append("svg")
-            .attr("width", width)
-            .attr("height", height - 50);
+        var svg = d3.select(divClassIn).append("svg")
+            .attr("width", svgDimIn.width)
+            .attr("height", svgDimIn.height - 50);
 
         var dataL = 0;
         var offset = offSetIn; //Make parameter
 
-        var legend4 = svgLegned4.selectAll('.legends4')
+        var legend4 = svg.selectAll('.legends4')
             .data(legValsIn)
             .enter().append('g')
             .attr("class", "legends4")
@@ -76,7 +76,7 @@
             .style("text-anchor", "start")
             .style("font-size", 15)
         }
-        drawLegend(legendVals2, color, ".legend4", 270);
+        drawLegend(legendVals2, color, ".legend4", 270, svgParams);
     </script>
 
 </div>
