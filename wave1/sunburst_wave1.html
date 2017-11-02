@@ -7,60 +7,25 @@
     <link rel="stylesheet" href="../css/sunburst_bilevel.css">
     <link rel="stylesheet" href="../css/general.css">
     <script type="text/javascript" src="../js/sunburst_bilevel_partition.js"></script>
+    <script type="text/javascript" src="../js/linked_button.js"></script>
 
 </head>
 <body>
 
 <div>
     <svg id="wave1"></svg>
+    <script>
+        drawSuburstBilevelPartition("../data/wave1.json", "#wave1");
+    </script>
 </div>
 
 <div>
     <svg id="button"></svg>
     <script>
-
-        function drawLinkedButton(svgIn, svgWidthIn, svgHeightIn, rectHeightIn, rectWidthIn, pathIn, displayWordIn) {
-
-//        var word = displayWordIn;
-
-        var svg = d3.select(svgIn)
-            .attr("width", svgWidthIn)
-            .attr("height", svgHeightIn);
-
-        var g = svg.selectAll("g").append("g");
-
-        // draw a rectangle
-        var rectangle = svg.append("a")
-            .attr("href", pathIn)
-            .attr("target", "_blank")
-            .append("rect")
-            .attr("x", (svgWidthIn - rectWidthIn)/2)
-            .attr("y", (svgHeightIn - rectHeightIn)/2)
-            .attr("height", rectHeightIn)
-            .attr("width", rectWidthIn)
-            .style("fill", "lightgreen")
-            .attr("rx", 10)
-            .attr("ry", 10);
-
-        // draw text on the screen
-        svg.append("text")
-            .attr("x", svgWidthIn/2)
-            .attr("y", svgHeightIn/2)
-            .style("fill", "black")
-            .style("font-size", "20px")
-            .attr("dy", ".35em")
-            .attr("text-anchor", "middle")
-            .style("pointer-events", "none")
-            .text(displayWordIn);
-        }
         drawLinkedButton("#button", 960, 200, 100, 200, "wave1placeholder.html", "Explore Wave 1");
     </script>
 </div>
 
-    <script>
-//        drawSuburstBilevelPartition("../data/flare.json", "#wave1");
-//        drawSuburstBilevelPartition("../data/project_test.json", "#wave1");
-        drawSuburstBilevelPartition("../data/wave1.json", "#wave1");
-    </script>
+
 </body>
 </html>
