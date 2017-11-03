@@ -51,9 +51,9 @@ var wave_questions={"wave_1": {
 		},
 		"H1TO_TobaccoAlcoholDrugs":{
 			"H1TO1":"Have you ever tried cigarette smoking, even just 1 or 2 puffs?",
-			"H1TO2":"How old were you when you smoked a whole cigarette for the first time?",
 			"H1TO3":"Have you ever smoked cigarettes regularly, that is, at least 1 cigarette every day for 30 days?",
 			"H1TO4":"How old were you when you first started smoking cigarettes regularly (at least 1 cigarette every day for 30 days)?"
+
 		}
 	},
 
