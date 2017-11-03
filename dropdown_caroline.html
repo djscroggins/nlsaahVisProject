@@ -25,8 +25,13 @@
         		//Create and append select list
         		//var array = ["Volvo","Saab","Mercades","Audi"];
         		var section = this.value;
-				var selectList_questionlevel = document.createElement("select");
-				selectList_questionlevel.id = "question_dropdown";
+        		if($("#" + "question_dropdown"+index).length == 0){
+					var selectList_questionlevel = document.createElement("select");
+					selectList_questionlevel.id = "question_dropdown"+index;
+					}
+				else{
+					var selectList_questionlevel=document.getElementById("question_dropdown"+index);
+				}
 				selectList_questionlevel.setAttribute("onchange","questionvaluefunction(this)");
 				dropdown_group.appendChild(selectList_questionlevel);
 
