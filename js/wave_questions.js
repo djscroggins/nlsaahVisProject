@@ -1,5 +1,4 @@
-{
-	var wave_questions={"wave_1": {
+var wave_questions={"wave_1": {
 	    "H1DA_DailyActivity":{
 	    	"H1DA1":"During the past week, how many times did you do work around the house, such as cleaning, cooking, laundry, yardwork, or caring for a pet?",
 			"H1DA2":"During the past week, how many times did you do hobbies, such as collecting baseball cards, playing a musical instrument, reading, or doing arts and crafts?",
@@ -15,7 +14,6 @@
 		},
 		"H1GH_GeneralHealth":{
 			"H1GH1":"In general, how is your health? Would you say...",
-			"H1GH1A":"Do you have difficulty using your hands, arms, legs, or feet because of a physical condition that has lasted for the past twelve months or more?",
 			"H1GH2":"How often have you had a headache?",
 			"H1GH3":"feeling hot all over suddenly, for no reason",
 			"H1GH4":"a stomach ache or an upset stomach",
@@ -57,65 +55,89 @@
 			"H1TO3":"Have you ever smoked cigarettes regularly, that is, at least 1 cigarette every day for 30 days?",
 			"H1TO4":"How old were you when you first started smoking cigarettes regularly (at least 1 cigarette every day for 30 days)?"
 		}
-	}
+	},
 
 	"wave_2": {
-		
-	}
+		"question1":"",
+		"question2":"",
+		"question3":"",
+		"question4":"",
+		"question5":"",
+		"question6":"",
+		"question7":"",
+		"question8":"",
+		"question9":"",
+		"question10":"",
+		"question11":"",
+		"question12":"",
+		"question13":"",
+		"question14":"",
+		"question15":"",
+		"question16":"",
+		"question17":"",
+		"question18":"",
+		"question19":"",
+		"question20":"",
+		"question21":"",
+		"question22":"",
+		"question23":"",
+		"question24":"",
+		"question25":""
+	},
 
 	"wave_3": {
-		"question1":""
-		"question2":""
-		"question3":""
-		"question4":""
-		"question5":""
-		"question6":""
-		"question7":""
-		"question8":""
-		"question9":""
-		"question10":""
-		"question11":""
-		"question12":""
-		"question13":""
-		"question14":""
-		"question15":""
-		"question16":""
-		"question17":""
-		"question18":""
-		"question19":""
-		"question20":""
-		"question21":""
-		"question22":""
-		"question23":""
-		"question24":""
+		"question1":"",
+		"question2":"",
+		"question3":"",
+		"question4":"",
+		"question5":"",
+		"question6":"",
+		"question7":"",
+		"question8":"",
+		"question9":"",
+		"question10":"",
+		"question11":"",
+		"question12":"",
+		"question13":"",
+		"question14":"",
+		"question15":"",
+		"question16":"",
+		"question17":"",
+		"question18":"",
+		"question19":"",
+		"question20":"",
+		"question21":"",
+		"question22":"",
+		"question23":"",
+		"question24":"",
 		"question25":""
-	}
+	},
 
 	"wave_4": {
-		"question1":""
-		"question2":""
-		"question3":""
-		"question4":""
-		"question5":""
-		"question6":""
-		"question7":""
-		"question8":""
-		"question9":""
-		"question10":""
-		"question11":""
-		"question12":""
-		"question13":""
-		"question14":""
-		"question15":""
-		"question16":""
-		"question17":""
-		"question18":""
-		"question19":""
-		"question20":""
-		"question21":""
-		"question22":""
-		"question23":""
-		"question24":""
+		"question1":"",
+		"question2":"",
+		"question3":"",
+		"question4":"",
+		"question5":"",
+		"question6":"",
+		"question7":"",
+		"question8":"",
+		"question9":"",
+		"question10":"",
+		"question11":"",
+		"question12":"",
+		"question13":"",
+		"question14":"",
+		"question15":"",
+		"question16":"",
+		"question17":"",
+		"question18":"",
+		"question19":"",
+		"question20":"",
+		"question21":"",
+		"question22":"",
+		"question23":"",
+		"question24":"",
 		"question25":""
 	}
 }
