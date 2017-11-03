@@ -885,6 +885,87 @@
       ]
     },
     {
+      "name": "Feelings Scale",
+      "children": [
+        {
+          "name": "H2FS1",
+          "children": [{"name": "0", "size": 2735}, {"name": "1", "size": 1685}, {"name": "2", "size": 316}, {"name": "3", "size": 91}, {"name": "6", "size": 1}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H2FS2",
+          "children": [{"name": "0", "size": 3055}, {"name": "1", "size": 1334}, {"name": "2", "size": 343}, {"name": "3", "size": 98}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H2FS3",
+          "children": [{"name": "0", "size": 3406}, {"name": "1", "size": 1026}, {"name": "2", "size": 285}, {"name": "3", "size": 103}, {"name": "6", "size": 2}, {"name": "8", "size": 12}]
+        },
+        {
+          "name": "H2FS4",
+          "children": [{"name": "0", "size": 515}, {"name": "1", "size": 886}, {"name": "2", "size": 1621}, {"name": "3", "size": 1803}, {"name": "8", "size": 9}]
+        },
+        {
+          "name": "H2FS5",
+          "children": [{"name": "0", "size": 1864}, {"name": "1", "size": 2156}, {"name": "2", "size": 632}, {"name": "3", "size": 175}, {"name": "6", "size": 1}, {"name": "8", "size": 6}]
+        },
+        {
+          "name": "H2FS6",
+          "children": [{"name": "0", "size": 2991}, {"name": "1", "size": 1404}, {"name": "2", "size": 298}, {"name": "3", "size": 134}, {"name": "6", "size": 1}, {"name": "8", "size": 6}]
+        },
+        {
+          "name": "H2FS7",
+          "children": [{"name": "0", "size": 1985}, {"name": "1", "size": 2224}, {"name": "2", "size": 511}, {"name": "3", "size": 110}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H2FS8",
+          "children": [{"name": "0", "size": 481}, {"name": "1", "size": 1141}, {"name": "2", "size": 1675}, {"name": "3", "size": 1523}, {"name": "6", "size": 2}, {"name": "8", "size": 12}]
+        },
+        {
+          "name": "H2FS9",
+          "children": [{"name": "0", "size": 4083}, {"name": "1", "size": 575}, {"name": "2", "size": 125}, {"name": "3", "size": 38}, {"name": "6", "size": 1}, {"name": "8", "size": 12}]
+        },
+        {
+          "name": "H2FS10",
+          "children": [{"name": "0", "size": 3606}, {"name": "1", "size": 1060}, {"name": "2", "size": 131}, {"name": "3", "size": 32}, {"name": "8", "size": 5}]
+        },
+        {
+          "name": "H2FS11",
+          "children": [{"name": "0", "size": 122}, {"name": "1", "size": 896}, {"name": "2", "size": 1994}, {"name": "3", "size": 1817}, {"name": "6", "size": 1}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H2FS12",
+          "children": [{"name": "0", "size": 2549}, {"name": "1", "size": 1814}, {"name": "2", "size": 356}, {"name": "3", "size": 107}, {"name": "6", "size": 1}, {"name": "8", "size": 7}]
+        },
+        {
+          "name": "H2FS13",
+          "children": [{"name": "0", "size": 3183}, {"name": "1", "size": 1274}, {"name": "2", "size": 279}, {"name": "3", "size": 107}, {"name": "6", "size": 2}, {"name": "8", "size": 6}]
+        },
+        {
+          "name": "H2FS14",
+          "children": [{"name": "0", "size": 3184}, {"name": "1", "size": 1426}, {"name": "2", "size": 173}, {"name": "3", "size": 45}, {"name": "8", "size": 6}]
+        },
+        {
+          "name": "H2FS15",
+          "children": [{"name": "0", "size": 168}, {"name": "1", "size": 754}, {"name": "2", "size": 1600}, {"name": "3", "size": 2307}, {"name": "6", "size": 1}, {"name": "8", "size": 4}]
+        },
+        {
+          "name": "H2FS16",
+          "children": [{"name": "0", "size": 2568}, {"name": "1", "size": 1941}, {"name": "2", "size": 237}, {"name": "3", "size": 81}, {"name": "6", "size": 2}, {"name": "8", "size": 5}]
+        },
+        {
+          "name": "H2FS17",
+          "children": [{"name": "0", "size": 3295}, {"name": "1", "size": 1327}, {"name": "2", "size": 150}, {"name": "3", "size": 55}, {"name": "6", "size": 1}, {"name": "8", "size": 6}]
+        },
+        {
+          "name": "H2FS18",
+          "children": [{"name": "0", "size": 2314}, {"name": "1", "size": 2084}, {"name": "2", "size": 361}, {"name": "3", "size": 69}, {"name": "8", "size": 6}]
+        },
+        {
+          "name": "H2FS19",
+          "children": [{"name": "0", "size": 4330}, {"name": "1", "size": 379}, {"name": "2", "size": 75}, {"name": "3", "size": 38}, {"name": "6", "size": 2}, {"name": "8", "size": 10}]
+        }
+      ]
+    },
+    {
       "name": "Tobacco, Alcohol, Drugs—Audio CASI",
       "children": [
         {
