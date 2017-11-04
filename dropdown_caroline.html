@@ -6,7 +6,9 @@
     <script type="text/javascript" src="js/wave_questions.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript">
-
+        var wave="wave_1";
+        var wavequestions_data = eval(wave_questions); 
+        var theKeys = [];
     	var genreateSelector = function(containDiv, index) {
     		var dropdown_group = document.getElementById(containDiv);
 
@@ -45,12 +47,12 @@
 				}
 	    	});
     	}
-
+        
     	var questionvaluefunction=function(obj){
     			console.log(obj.value);
+                theKeys.append(obj.value);
     		};
-    	var wave="wave_1";
-    	var wavequestions_data = eval(wave_questions); 
+
 
     	$( document ).ready(function() {
     		console.log( "ready!" );

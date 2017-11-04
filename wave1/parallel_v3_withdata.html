@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<head>
 <style>
 
 svg {
@@ -33,27 +32,24 @@ svg {
 
 .axis text {
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
-  cursor: move;
 }
 
 </style>
-</head>
 <body>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script type="text/javascript" src="../js/carsCSV.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<!-- <script type="text/javascript" src="../js/carsCSV.js"></script> -->
+<script type="text/javascript" src="../js/wave1csv.js"></script>
 <script>
 
 var margin = {top: 30, right: 10, bottom: 10, left: 10},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
+var x = d3.scale.ordinal().rangePoints([0, width], 1),
+    y = {};
 
-var x = d3.scalePoint().range([0, width]),
-    y = {},
-    dragging = {};
-
-var line = d3.line(),
-    axis = d3.axisLeft(),
+var line = d3.svg.line(),
+    axis = d3.svg.axis().orient("left"),
     background,
     foreground;
 
@@ -62,25 +58,37 @@ var svg = d3.select("body").append("svg")
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-var carsCSVdata=d3.csvParse(carsCSV,
-                            function(cars){
-                                return cars
+
+var waveCSVdata=d3.csv.parse(wave1CSV,
+                            function(d){
+                                return d
                             });
 
-var drawPC=function(cars){
+
+var drawPC=function(wavedata){
+
+  var theKeys = ["H1DA1", "H1DA2", "H1DA3", "H1DA4", "H1GH1"];
+  theKeys.filter(function(d) {
+    return (y[d] = d3.scale.linear()
+        .domain(d3.extent(wavedata, function(p) { return +p[d]; }))
+        .range([height, 0]));
+  })
+  x.domain(dimensions = theKeys);
+
+  // theKeys = [cars[0][2],cars[0][3]];
 
   // Extract the list of dimensions and create a scale for each.
-  x.domain(dimensions = d3.keys(cars[0]).filter(function(d) {
-    return d != "name" && (y[d] = d3.scaleLinear()
-        .domain(d3.extent(cars, function(p) { return +p[d]; }))
-        .range([height, 0]));
-  }));
+  // x.domain(dimensions = theKeys.filter(function(d) {
+  //   return  (y[d] = d3.scale.linear()
+  //       .domain(d3.extent(wavedata, function(p) { return +p[d]; }))
+  //       .range([height, 0]));
+  // }));
 
   // Add grey background lines for context.
   background = svg.append("g")
       .attr("class", "background")
     .selectAll("path")
-      .data(cars)
+      .data(wavedata)
     .enter().append("path")
       .attr("d", path);
 
@@ -88,7 +96,7 @@ var drawPC=function(cars){
   foreground = svg.append("g")
       .attr("class", "foreground")
     .selectAll("path")
-      .data(cars)
+      .data(wavedata)
     .enter().append("path")
       .attr("d", path);
 
@@ -97,31 +105,7 @@ var drawPC=function(cars){
       .data(dimensions)
     .enter().append("g")
       .attr("class", "dimension")
-      .attr("transform", function(d) { return "translate(" + x(d) + ")"; })
-      .call(d3.drag()
-        .subject(function(d) { return {x: x(d)}; })
-        .on("start", function(d) {
-          dragging[d] = x(d);
-          background.attr("visibility", "hidden");
-        })
-        .on("drag", function(d) {
-          dragging[d] = Math.min(width, Math.max(0, d3.event.x));
-          foreground.attr("d", path);
-          dimensions.sort(function(a, b) { return position(a) - position(b); });
-          x.domain(dimensions);
-          g.attr("transform", function(d) { return "translate(" + position(d) + ")"; })
-        })
-        .on("end", function(d) {
-          delete dragging[d];
-          transition(d3.select(this)).attr("transform", "translate(" + x(d) + ")");
-          transition(foreground).attr("d", path);
-          background
-              .attr("d", path)
-            .transition()
-              .delay(500)
-              .duration(0)
-              .attr("visibility", null);
-        }));
+      .attr("transform", function(d) { return "translate(" + x(d) + ")"; });
 
   // Add an axis and title.
   g.append("g")
@@ -135,35 +119,20 @@ var drawPC=function(cars){
   // Add and store a brush for each axis.
   g.append("g")
       .attr("class", "brush")
-      .each(function(d) {
-        d3.select(this).call(y[d].brush = d3.brushY(y[d]).on("start", brushstart).on("brush", brush));
-      })
+      .each(function(d) { d3.select(this).call(y[d].brush = d3.svg.brush().y(y[d]).on("brush", brush)); })
     .selectAll("rect")
       .attr("x", -8)
       .attr("width", 16);
 };
 
-function position(d) {
-  var v = dragging[d];
-  return v == null ? x(d) : v;
-}
-
-function transition(g) {
-  return g.transition().duration(500);
-}
-
 // Returns the path for a given data point.
 function path(d) {
-  return line(dimensions.map(function(p) { return [position(p), y[p](d[p])]; }));
-}
-
-function brushstart() {
-  d3.event.sourceEvent.stopPropagation();
+  return line(dimensions.map(function(p) { return [x(p), y[p](d[p])]; }));
 }
 
 // Handles a brush event, toggling the display of foreground lines.
 function brush() {
-  var actives = dimensions.filter(function(p) { return !y[p].brush.move; }),
+  var actives = dimensions.filter(function(p) { return !y[p].brush.empty(); }),
       extents = actives.map(function(p) { return y[p].brush.extent(); });
   foreground.style("display", function(d) {
     return actives.every(function(p, i) {
@@ -171,7 +140,5 @@ function brush() {
     }) ? null : "none";
   });
 }
-
-drawPC(carsCSVdata)
+drawPC(waveCSVdata);
 </script>
-</body>
