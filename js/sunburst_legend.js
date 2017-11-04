@@ -6,22 +6,18 @@ function drawLegend(paramsIn) {
     var dLength = 0;
     var offset = paramsIn.offset; //Make parameter
 
-    var legend4 = svg.selectAll(".legends4")
+    var legends = svg.selectAll("g")
         .data(paramsIn.values)
-        .enter().append('g')
-        .attr("class", "legends4")
+        .enter().append("g")
         .attr("transform", function (d, i) {
-            if (i === 0) {
-                dLength = d.length + offset;
-                return "translate(0,0)"
-            } else {
-                var newdataL = dLength;
-                dLength +=  d.length + offset;
-                return "translate(" + (newdataL) + ",0)"
+            if (i === 0){
+                return "translate(0, 0)"
+           } else {
+                return "translate(0," + i*15 + ")"
             }
         });
 
-    legend4.append("rect")
+    legends.append("rect")
         .attr("x", 0)
         .attr("y", 5)
         .attr("width", 10)
@@ -30,7 +26,7 @@ function drawLegend(paramsIn) {
             return paramsIn.color(i)
         });
 
-    legend4.append('text')
+    legends.append('text')
         .attr("x", 20)
         .attr("y", 10)
         .attr("dy", ".35em")
@@ -39,5 +35,5 @@ function drawLegend(paramsIn) {
         })
         .attr("class", "textselected")
         .style("text-anchor", "start")
-        .style("font-size", 15)
+        .style("font-size", "15px")
 }

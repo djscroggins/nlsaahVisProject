@@ -8,9 +8,28 @@
     <link rel="stylesheet" href="../css/general.css">
     <script type="text/javascript" src="../js/sunburst_bilevel_partition.js"></script>
     <script type="text/javascript" src="../js/linked_button.js"></script>
+    <script type="text/javascript" src="../js/sunburst_legend.js"></script>
 
 </head>
 <body>
+
+<div class="legend3">
+    <script>
+        var legVals = ["Tobacco, Drugs, Alchohol", "Access to Healthcare", "Daily Activities", "General Health", "Illness",
+        "Social Psychology"];
+        var params = {
+            values: legVals,
+            color: d3.scale.ordinal()
+                .domain(legVals)
+                .range(["#980297", "#D42E31", "#FE812A", "#30A033", "#9367BB", "#8B574D"]),
+            divClass: ".legend3",
+//            offset: 235,
+            svgDims: {width: 200, height: 145}
+        };
+
+        drawLegend(params);
+    </script>
+</div>
 
 <div>
     <svg id="wave3"></svg>
