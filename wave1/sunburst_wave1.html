@@ -12,17 +12,17 @@
 </head>
 <body>
 
-<div class="legend4">
+<div class="legend1">
     <script>
-        var legVals = ["Daily Activities", "General Health", "Access to Healthcare", "Tobacco, Drugs, Alchohol"];
+        var legVals = ["Tobacco, Drugs, Alchohol", "Access to Healthcare", "Daily Activities", "General Health"];
         var params = {
             values: legVals,
             color: d3.scale.ordinal()
                     .domain(legVals)
-                    .range(["#FE812A", "#30A033", "#D42E31", "#9367BB"]),
-            divClass: ".legend4",
-            offset: 235,
-            svgDims: {width: 960, height: 80}
+                    .range(["#9367BB", "#D42E31", "#FE812A", "#30A033"]),
+            divClass: ".legend1",
+//            offset: 235,
+            svgDims: {width: 200, height: 120}
         };
 
         drawLegend(params);
