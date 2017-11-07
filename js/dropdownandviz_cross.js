@@ -1,7 +1,7 @@
 
 var wavequestions_data = eval(wave_questions); 
 
-var genreateSelector = function(sectionDiv, index) {
+var genreateSelector = function(sectionDiv, index,wave) {
 	var section_group = document.getElementById(sectionDiv);
 
 	var selectList_sectionlevel = document.createElement("select");
@@ -11,6 +11,7 @@ var genreateSelector = function(sectionDiv, index) {
     unselected_option.value = "no selected";
     unselected_option.text="no selected";
     selectList_sectionlevel.appendChild(unselected_option);
+    selectList_sectionlevel.setAttribute("onchange","questionvaluefunction(this,"+index+",'"+wave+"','"+sectionDiv+"')")
 	for (var sectionkey in wavequestions_data[wave]) {
 		    var option = document.createElement("option");
 		    option.value = sectionkey;
@@ -20,34 +21,44 @@ var genreateSelector = function(sectionDiv, index) {
 		
     // $("#" + NAME).change(function () {
         
-	$("#section_dropdown" + index).change(function () {        	
-		//Create and append select list
-		var section = this.value;
-		if($("#" + "question_dropdown"+index).length == 0){
-			var selectList_questionlevel = document.createElement("select");
-			selectList_questionlevel.id = "question_dropdown"+index;
-			}
-		else{
-			var selectList_questionlevel=document.getElementById("question_dropdown"+index);
-            $("#question_dropdown"+index).empty();
-		}
-		selectList_questionlevel.setAttribute("onchange","questionvaluefunction(this)");
-		section_group.appendChild(selectList_questionlevel);
-
-		//Create and append the options
-		for (var questionkey in wavequestions_data[wave][section]) {
-			// for (var section_key in wavequestions_data[wavekey])
-		    var option = document.createElement("option");
-		    option.value = questionkey;
-		    option.text = wavequestions_data[wave][section][questionkey];
-		    selectList_questionlevel.appendChild(option);				 
-		}
-	});
+	// $("#section_dropdown" + index).change();
 }
 
-var questionvaluefunction=function(obj){
+var sessionvaluefunction=function(obj,index,dropdown_wavediv){
+    var dropdown_wavediv = document.getElementById(dropdown_wavediv)
+    var dropdown_section = document.createElement("div");
+    var wave=obj.value;
+    dropdown_section.id= "dropdown_section_div"+index;
+    dropdown_wavediv.appendChild(dropdown_section);
+    genreateSelector(dropdown_section.id, index,wave);
+}
+
+var questionvaluefunction=function(obj,index,wave,section_dropdown){
        // $("question_dropdown"+index).empty();
-		console.log(obj.value);
+		        
+        //Create and append select list
+        var section = obj.value;
+        if($("#" + "question_dropdown"+index).length == 0){
+            var selectList_questionlevel = document.createElement("select");
+            selectList_questionlevel.id = "question_dropdown"+index;
+            }
+        else{
+            var selectList_questionlevel=document.getElementById("question_dropdown"+index);
+            $("#question_dropdown"+index).empty();
+        }
+        // selectList_questionlevel.setAttribute("onchange","questionvaluefunction(this)");
+        var section_dropdown=document.getElementById(section_dropdown);
+        section_dropdown.appendChild(selectList_questionlevel);
+
+        //Create and append the options
+        for (var questionkey in wavequestions_data[wave][section]) {
+            // for (var section_key in wavequestions_data[wavekey])
+            var option = document.createElement("option");
+            option.value = questionkey;
+            option.text = wavequestions_data[wave][section][questionkey];
+            selectList_questionlevel.appendChild(option);                
+        }
+      
 	};
 
 
@@ -149,24 +160,32 @@ $( document ).ready(function() {
     console.log( "ready!" );
     var dropdown_group = document.getElementById("dropdown_group");
     for (var i = 1; i <6; i++) {
-        var dropdown_section = document.createElement("div");
-        dropdown_section.id= "dropdown_section"+i;
-        dropdown_group.appendChild(dropdown_section)
-        genreateSelector(dropdown_section.id, i);
-    }
-    // var dropdown_section1 = document.createElement("div");
-    // var dropdown_section2 = document.createElement("div");
-    // // var dropdown_section3 = document.createElement("div");
-    // // var dropdown_section4 = document.createElement("div");
-    // // var dropdown_section5 = document.createElement("div");
-    // dropdown_group.appendChild(dropdown_section1)
-    // dropdown_group.appendChild(dropdown_section2)
+        // var dropdown_section = document.createElement("div");
+        // dropdown_section.id= "dropdown_section"+i;
+        // dropdown_group.appendChild(dropdown_section)
+        // genreateSelector(dropdown_section.id, i);
 
-    // genreateSelector("dropdown_group", 1);
-    // genreateSelector("dropdown_group", 2);
-    // genreateSelector("dropdown_group", 3);
-    // genreateSelector("dropdown_group", 4);
-    // genreateSelector("dropdown_group", 5);
+        var dropdown_wave=document.createElement("div");
+        dropdown_wave.id="dropdown_wave"+i
+        dropdown_group.appendChild(dropdown_wave)
+        var selectList_wavelevel = document.createElement("select");
+        selectList_wavelevel.id = "wave_dropdownlist" + i;
+        dropdown_wave.appendChild(selectList_wavelevel)
+        var unselected_option = document.createElement("option");
+        unselected_option.value = "no selected";
+        unselected_option.text="no selected";
+        selectList_wavelevel.appendChild(unselected_option)
+        selectList_wavelevel.setAttribute("onchange","sessionvaluefunction(this,"+i+",'dropdown_wave" + i+"')");
+        for(var j=1;j<5;j++){
+            var wave_option = document.createElement("option");
+            wave_option.value = "wave_"+j;
+            wave_option.text="wave_"+j;
+            selectList_wavelevel.appendChild(wave_option)
+        }
+
+
+    }
+
     
     document.getElementById("dropdown_go_button").addEventListener("click", function(){
         //document.getElementById("demo").innerHTML = "Hello World";

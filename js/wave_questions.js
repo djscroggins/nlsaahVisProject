@@ -155,7 +155,19 @@ var wave_questions={"wave_1": {
 			"H2FS17":"You felt that people disliked you.",
 			"H2FS18":"It was hard to get started doing things.",
 			"H2FS19":"You felt life was not worth living."
+		},
+		"H2NU_Nutrition":{
+			"H2NU1":"Did you drink milk, including milk poured on cereal or dessert?",
+			"H2NU3":"Did you drink soft drinks or mixers, such as tonic water or club soda, etc.?",
+			"H2NU6":"Did you drink other 100% fruit juice, not including fruit-flavored drinks?",
+			"H2NU7":"Did you drink Koolaid, fruit-flavored drinks, Gatoraid, or other sport drinks?",
+			"H2NU9":"Did you drink water?",
+			"H2NU10":"apples, applesauce, pears, or pineapple?",
+			"H2NU11":"bananas, plantains, grapes, berries, or cherries?",
+			"H2NU12":"cantaloupes, melons, mangoes, or papayas?",
+			"H2NU13":"oranges, grapefruit, tangerines, or kiwis?"
 		}
+
 	},
 
 	"wave_3": {
@@ -221,25 +233,31 @@ var wave_questions={"wave_1": {
 			"H3TO130":"During the past 12 months, have you ever seriously thought about committing suicide?",
 			"H3TO135":"During the past 12 months, have any of your family members tried to kill them selves?"
 		},
-		"H2FS_FeelingScale_un":{
-			"H2FS1":"You were bothered by things that usually don’t bother you.",
-			"H2FS3":"You felt that you could not shake off the blues, even with help from your family and your friends.",
-			"H2FS4":"You felt that you were just as good as other people.",
-			"H2FS5":"You had trouble keeping your mind on what you were doing.",
-			"H2FS6":"You felt depressed.",
-			"H2FS7":"You felt that you were too tired to do things.",
-			"H2FS8":"You felt hopeful about the future.",
-			"H2FS9":"You thought your life had been a failure.",
-			"H2FS10":"You felt fearful.",
-			"H2FS11":"You were happy",
-			"H2FS12":"You talked less than usual.",
-			"H2FS13":"You felt lonely.",
-			"H2FS14":"People were unfriendly to you.",
-			"H2FS15":"You enjoyed life.",
-			"H2FS16":"You felt sad.",
-			"H2FS17":"You felt that people disliked you.",
-			"H2FS18":"It was hard to get started doing things.",
-			"H2FS19":"You felt life was not worth living."
+		"H3ID_Illnesses Medications Physical Disabilities":{
+			"H3ID1":"vigorous activities, such as running, lifting heavy objects,participating in strenuous sports",
+			"H3ID2":"moderate activities, such as moving a table, pushing a vacuum cleaner, bowling, playing golf",
+			"H3ID3":"lifting or carrying a bag of groceries",
+			"H3ID4":"climbing several flights of stairs",
+			"H3ID5":"climbing one flight of stairs",
+			"H3ID6":"bending, kneeling , or stooping",
+			"H3ID7":"walking more than a mile",
+			"H3ID10":"bathing and dressing your self.",
+			"H3ID12":"In the past 30 days, have you taken antibiotics, such as tetracycline, doxycycline, amoxicillin, or erythromycin?",
+			"H3ID13":"Have you ever been diagnosed with asthma?",
+			"H3ID14":"Have you ever been diagnosed with cancer or leukemia?",
+			"H3ID15":"Have you ever been diagnosed with depression?",
+			"H3ID16":"Have you ever been diagnosed with diabetes?",
+			"H3ID19":"Have you ever been diagnosed with epilepsy or seizure disorder?"
+		},
+		"H3SP_Social Psychology and Mental Health":{
+			"H3SP1":"In the past 12 months, how often have you laughed a lot?",
+			"H3SP2":"In the past 12 month s, how often have you cried a lot?",
+			"H3SP3":"How satisfied are you with your life as a whole?",
+			"H3SP4":"Compared to other people you rage, how intelligent are you?",
+			"H3SP5":"You were bothered by things that usually don’t bother you.",
+			"H3SP6":"You could not shake off the blues, even with help from your family and your friends, during the past seven days.",
+			"H3SP7":"You felt that you were just as good as other people, during the past seven days.",
+			"H3SP8":"You had trouble keeping your mind on what you were doing, during the past seven days."
 		}
 	},
 
