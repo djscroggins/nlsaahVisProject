@@ -4,8 +4,19 @@ var wavequestions_data = eval(wave_questions);
 var genreateSelector = function(sectionDiv, index,wave) {
 	var section_group = document.getElementById(sectionDiv);
 
-	var selectList_sectionlevel = document.createElement("select");
-	selectList_sectionlevel.id = "section_dropdown" + index;
+	// var selectList_sectionlevel = document.createElement("select");
+	// selectList_sectionlevel.id = "section_dropdown" + index;
+    if($("#" + "section_dropdown"+index).length == 0){
+            var selectList_sectionlevel = document.createElement("select");
+            selectList_sectionlevel.id = "section_dropdown"+index;
+    }
+    else{
+            var selectList_sectionlevel=document.getElementById("section_dropdown"+index);
+            $("#section_dropdown"+index).empty();
+            if($("#" + "question_dropdown"+index).length != 0){
+                 $("#question_dropdown"+index).remove();
+            }
+    }
 	section_group.appendChild(selectList_sectionlevel);
     var unselected_option = document.createElement("option");
     unselected_option.value = "no selected";
