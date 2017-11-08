@@ -204,7 +204,9 @@ $( document ).ready(function() {
             }
         }
         
-
+        var featuresIn = ["H1DA5","H1DA6","H1DA7","H1DA8"];
+        var classIn = ["C_CRP"];
+        var sizeIn = 230;
         drawPC(waveCSVdata, svg,theKeys);
     });
 
