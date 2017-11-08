@@ -187,7 +187,11 @@ var drawScatterPlotMatrix = function (data, svgIn, featuresIn, classIn, sizeIn){
         .attr("width", size * n + padding)
         .attr("height", size * n + padding)
         .append("g")
-        .attr("transform", "translate(" + padding + "," + padding / 2 + ")");
+        .attr("transform", "translate(" + padding + "," + padding / 2 + ")")
+        .call(d3.zoom().on("zoom", function () {
+            svg.attr("transform", d3.event.transform)
+        }));
+        //.on("dblclick.zoom", null); //disable double click to zoom;
 
     svg.selectAll(".x.axis")
         .data(featuresIn)
