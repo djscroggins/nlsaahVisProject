@@ -1,48 +1,48 @@
-body {
+#spm div {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: auto;
     position: relative;
     width: 960px;
 }
 
-svg {
+#spm svg {
     font: 10px sans-serif;
     padding: 10px;
 }
 
-.axis,
-.frame {
+#spm .axis,
+#spm .frame {
     shape-rendering: crispEdges;
 }
 
-.axis line {
+#spm .axis line {
     stroke: #ddd;
 }
 
-.axis path {
+#spm .axis path {
     display: none;
 }
 
-.cell text {
+#spm .cell text {
     font-weight: bold;
     text-transform: capitalize;
     fill: black;
 }
 
-.frame {
+#spm .frame {
     fill: none;
     stroke: #aaa;
 }
 
-circle {
+#spm  circle {
     fill-opacity: .7;
 }
 
-circle.hidden {
+#spm circle.hidden {
     fill: #ccc !important;
 }
 
-.extent {
+#spm .extent {
     fill: #000;
     fill-opacity: .125;
     stroke: #fff;
