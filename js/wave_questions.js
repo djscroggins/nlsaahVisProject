@@ -262,6 +262,7 @@ var wave_questions={"wave_1": {
 	},
 
 	"wave_4": {
+<<<<<<< HEAD
 		"H4DA_DailyActivity":{
 	    	"H4DA1":"In the past seven days, how many hours did you watch television or videos, including VHS, DVDs or music videos?",
 			"H4DA2":"In the past seven days, how many times did you bicycle, skateboard, dance, hike, hunt, or do yard work",
@@ -295,6 +296,89 @@ var wave_questions={"wave_1": {
 			"H4TO25":"During the past 30 days, on how many days have you used chewing tobacco (such as Red Man, Levi Garrett, or Beechn ut) or snuff (such as Skoal, Skoal Band its, or Copen hagen)?",
 			"H4TO33":"Since June 1995, have you had a drink of beer, wine, or liquor more than two or three times? Do not include sips or tastes from someone else’s drink."	
 				
+=======
+		"H3DA_DailyActivity":{
+	    	"H3DA1":"In the past seven days, how m any times did you do housework, such as cleaning, cooking, or laundry?",
+			"H3DA2":"In the past seven days, how many times did you engage in a hobby such as working on a collection, playing cards or board games, arts and crafts, drama, playin g a musical instrument or singing with a group, or shopping just for fun?",
+			"H3DA3":"In the past seven days, how many times did you watch a movie, play video or computer games, or use a computer for surfing the Web, exchanging email, or participating in a chat room?",
+			"H3DA4":"On the average, how many hours a week do you spend watching videos?",
+			"H3DA5":"On the average, how many hours a week do you spend playing video or computer games, or using a computer for something other than school work?",
+			"H3DA6":"In the past seven days, how many times did you watch television?",
+			"H3DA7":"On the average, how many hours a week do you spend watching television?",
+			"H3DA8":"In the past seven days, how many times did you bicycle, skateboard, dance, hike, hunt, or do yard work?",
+			"H3DA11":"In the past seven days, how many times did you participate in individual sports such as running, wrestling, swimming, cross-country skiing, cycle racing, or martial arts?",
+			"H3DA12":"In the past seven days, how many times did you participate in gymnastics, weight lifting, or strength training?",
+			"H3DA13":"In the past seven days, how many times did you play golf, go fishing or bowling, or play softball or baseball?",
+			"H3DA14":"In the past seven days, how many times did you walk for exercise?",
+			"H3DA15":"In the past seven days, how many times did you just “hang out” with friends , or talk on the telephone for mo re th an five minutes?",
+			"H3DA16":"Were the past seven days typical in terms of your physical activity?",
+			"H3DA17":"Are you generally more active or less active than you were last week?",
+			"H3DA19":"How many children between the ages of six and twelve live in your household?",
+			"H3DA20":"On the average, how many hours per week do you spend taking care of the children in your household who are less than six years old by feeding, bathing, or dressing them?",
+			"H3DA22":"Are the children in your household involved in any sports activities?",
+			"H3DA23":"In the last seven days did you attend any of their sports activities as a spectator or transport any of them to a game or practice?",
+			"H3DA25":"In the last seven days did you actively participate in any of their sports activities—for example as a coach or referee?",
+			"H3DA28":"Do you currently have a job?"
+		},
+		"H3GH_GeneralHealth":{
+			"H3GH1":"In general, how is your health? Would you say...",
+			"H3GH2":"How do you think of yourself in terms of weight?",
+			"H3GH3":"What are you currently doin g about you r weight? Are you trying to lose weight, gain weight or bulk up, or stay the same weight—or are you not trying to do anyth ing about your weight?",
+			"H3GH5":"In the past seven days, how many times did you go to an exercise or fitness center to exercise or work out?",
+			"H3GH6":"In the past seven days, have you eaten so much in a short period that you would have been embarrassed if others had see you do it?",
+			"H3GH7":"In the past seven days, have you been afraid to start eating because you thought you wouldn’t be able to stop or control your eating?",
+			"H3GH8":"Have you ever been told by a doctor that you have an eating disorder, such as anorexia nervosa or bulimia?",
+			"H3GH15":"In the past seven days, how often did you fall asleep when you should have been awake (for example, during class or at work)?",
+			"H3GH16":"In the past seven days, how often did you take a nap?",
+			"H3GH17":"Do you consider yourself a vegetarian?",
+			"H3GH18":"On how many of the past seven days did you eat food from a fastfood place, McDonalds, Kentucky Fried Chicken, Pizza Hut, Taco Bell, or a local fastfood restaurant?",
+			"H3GH19":"On how many of the past seven days did you eat breakfast—that is, a meal within an hour of getting up?",
+			"H3GH20":"In the last month, have you taken any vitamins or minerals?"
+		},
+		"H3HS_AccessToHealthServices":{
+			"H3HS1":"Over the past 12 months, how many months did you have health insurance?",
+			"H3HS3":"Over the past 12 months, were you offered health insurance through work or school?",
+			"H3HS7":"Has there been any time in the past 12 months when you thought you should get medical care, but you did not?",
+			"H3HS11":"How long ago did you last consult a doctor or nurse?"
+		},
+		"H3TO_TobaccoAlcoholDrugs":{
+			"H3TO1":"Have you ever tried cigarette smoking, even just 1 or 2 puffs?",
+			"H3TO27":"I often try new things just for fun or thrills, even if most people think they are a waste of time.",
+			"H3TO28":"When nothing new is happening, I usually start looking for something exciting.",
+			"H3TO29":"I can usually get people to believe me, even when what I’m saying isn’t quite true.",
+			"H3TO31":"I often do things based on how I feel at the moment.",
+			"H3TO32":"I sometimes get so excited that I lose control of myself.",
+			"H3TO33":"I often follow my instincts, without thinking through all the details.",
+			"H3TO34":"I can do a good job of “stretching the truth ” when I’m talking to people.",
+			"H3TO35":"I change my interest a lot, because my attention often shifts to something else.",
+			"H3TO36":"During the past 30 days, on how many days have you used chewing tobacco (such as Red Man, Levi Garrett, or Beechn ut) or snuff (such as Skoal, Skoal Band its, or Copen hagen)?",
+			"H3TO37":"Since June 1995, have you had a drink of beer, wine, or liquor more than two or three times? Do not include sips or tastes from someone else’s drink."	,
+			"H3TO103":"Of your three best friends, how many drink alcohol at least once a month?",
+			"H3TO104":"Of you r th ree best friend s, how many binge drink at least once a month?",
+			"H3TO111":"Since June 1995, have you used any kind of cocaine—including crack, freebase, or powder?",
+			"H3TO130":"During the past 12 months, have you ever seriously thought about committing suicide?",
+			"H3TO135":"During the past 12 months, have any of your family members tried to kill them selves?"
+		},
+		"H2FS_FeelingScale_un":{
+			"H2FS1":"You were bothered by things that usually don’t bother you.",
+			"H2FS3":"You felt that you could not shake off the blues, even with help from your family and your friends.",
+			"H2FS4":"You felt that you were just as good as other people.",
+			"H2FS5":"You had trouble keeping your mind on what you were doing.",
+			"H2FS6":"You felt depressed.",
+			"H2FS7":"You felt that you were too tired to do things.",
+			"H2FS8":"You felt hopeful about the future.",
+			"H2FS9":"You thought your life had been a failure.",
+			"H2FS10":"You felt fearful.",
+			"H2FS11":"You were happy",
+			"H2FS12":"You talked less than usual.",
+			"H2FS13":"You felt lonely.",
+			"H2FS14":"People were unfriendly to you.",
+			"H2FS15":"You enjoyed life.",
+			"H2FS16":"You felt sad.",
+			"H2FS17":"You felt that people disliked you.",
+			"H2FS18":"It was hard to get started doing things.",
+			"H2FS19":"You felt life was not worth living."
+>>>>>>> master
 		}
 	}
 }
