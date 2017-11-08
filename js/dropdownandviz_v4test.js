@@ -2,53 +2,53 @@
 var wavequestions_data = eval(wave_questions); 
 
 var genreateSelector = function(sectionDiv, index) {
-	var section_group = document.getElementById(sectionDiv);
+    var section_group = document.getElementById(sectionDiv);
 
-	var selectList_sectionlevel = document.createElement("select");
-	selectList_sectionlevel.id = "section_dropdown" + index;
-	section_group.appendChild(selectList_sectionlevel);
+    var selectList_sectionlevel = document.createElement("select");
+    selectList_sectionlevel.id = "section_dropdown" + index;
+    section_group.appendChild(selectList_sectionlevel);
     var unselected_option = document.createElement("option");
     unselected_option.value = "no selected";
     unselected_option.text="no selected";
     selectList_sectionlevel.appendChild(unselected_option);
-	for (var sectionkey in wavequestions_data[wave]) {
-		    var option = document.createElement("option");
-		    option.value = sectionkey;
-		    option.text = sectionkey;
-		    selectList_sectionlevel.appendChild(option);				 
-	}
-		
+    for (var sectionkey in wavequestions_data[wave]) {
+            var option = document.createElement("option");
+            option.value = sectionkey;
+            option.text = sectionkey;
+            selectList_sectionlevel.appendChild(option);                 
+    }
+        
     // $("#" + NAME).change(function () {
         
-	$("#section_dropdown" + index).change(function () {        	
-		//Create and append select list
-		var section = this.value;
-		if($("#" + "question_dropdown"+index).length == 0){
-			var selectList_questionlevel = document.createElement("select");
-			selectList_questionlevel.id = "question_dropdown"+index;
-			}
-		else{
-			var selectList_questionlevel=document.getElementById("question_dropdown"+index);
+    $("#section_dropdown" + index).change(function () {         
+        //Create and append select list
+        var section = this.value;
+        if($("#" + "question_dropdown"+index).length == 0){
+            var selectList_questionlevel = document.createElement("select");
+            selectList_questionlevel.id = "question_dropdown"+index;
+            }
+        else{
+            var selectList_questionlevel=document.getElementById("question_dropdown"+index);
             $("#question_dropdown"+index).empty();
-		}
-		selectList_questionlevel.setAttribute("onchange","questionvaluefunction(this)");
-		section_group.appendChild(selectList_questionlevel);
+        }
+        selectList_questionlevel.setAttribute("onchange","questionvaluefunction(this)");
+        section_group.appendChild(selectList_questionlevel);
 
-		//Create and append the options
-		for (var questionkey in wavequestions_data[wave][section]) {
-			// for (var section_key in wavequestions_data[wavekey])
-		    var option = document.createElement("option");
-		    option.value = questionkey;
-		    option.text = wavequestions_data[wave][section][questionkey];
-		    selectList_questionlevel.appendChild(option);				 
-		}
-	});
+        //Create and append the options
+        for (var questionkey in wavequestions_data[wave][section]) {
+            // for (var section_key in wavequestions_data[wavekey])
+            var option = document.createElement("option");
+            option.value = questionkey;
+            option.text = wavequestions_data[wave][section][questionkey];
+            selectList_questionlevel.appendChild(option);                
+        }
+    });
 }
 
 var questionvaluefunction=function(obj){
        // $("question_dropdown"+index).empty();
-		console.log(obj.value);
-	};
+        console.log(obj.value);
+    };
 
 
 
@@ -131,21 +131,29 @@ var drawPC=function(wavedata, svg, theKeys){
             return "translate(" + x(d) + ")"; 
         });
 
-    // // Add an axis and title.
+    // Add an axis and title.
     g.append("svg:g")
         .attr("class", "axis")
         .each(function(d) { 
-            // d3.select(this).call(axis.scale(y[d]));
             d3.select(this).call(d3.axisRight(y[d]));
         })
         // .each(function(d) { d3.select(this).call( d3.axisLeft(y[d]) ); })
         .append("svg:text")
         .style("text-anchor", "middle")
         .attr("y", -9)
+        .attr("x", 13)
+        .attr("fill", "#000")
+        // .each(function(d) {
+        //     // 
+        //     this.attr("onclick", "alert('" + d + "')")
+        // })
+
+        
         // .text(String);
         .text(function(d) { return d; });
 
-    g.append("g")
+
+    g.append("svg:g")
       .attr("class", "brush")
       .each(function(d) {
         d3.select(this).call(d.brush = 
@@ -175,21 +183,11 @@ function brushstart() {
     d3.event.sourceEvent.stopPropagation();
     foreground.style("display", "none");
 
+
 }
 
 
-
-function scaleThePCExtentValue(extent) {
-    // var t = (height - extent);
-    var r = parseFloat(theMaxValueOfPC / height) * parseFloat(extent);
-
-    r =  parseFloat(theMaxValueOfPC - r);
-
-    return r;
-}
-
-
-function compare(dim, extent) {
+function pcBrushCompare(dim, extent) {
     var e0 = parseFloat(theMaxValueOfPC) - (parseFloat(theMaxValueOfPC / height) * parseFloat(extent[0]));
     var e1 = parseFloat(theMaxValueOfPC) - (parseFloat(theMaxValueOfPC / height) * parseFloat(extent[1]));
 
@@ -212,66 +210,12 @@ function brush() {
         });
       });
 
-    // console.log(actives);
     foreground.style("display", function(d) {
-        // console.log("D:")
-        // console.log(d)
         return actives.every(function(p, i) {
-            
-            // var dim = p.dimension;
-            // return within(d[dim], p.extent, dim);
-
-            
-            return compare(d[p.dimension], p.extent);
-            // return scaleThePCExtentValue(p.extent[0]) <= parseFloat(d[p.dimension]) && parseFloat(d[p.dimension]) <= scaleThePCExtentValue(p.extent[1]);
+            return pcBrushCompare(d[p.dimension], p.extent);
 
         }) ? null : "none";
     });
-
-    // var selected = waveCSVdata.filter(function(d) {
-    //   if (actives.every(function(active) {
-    //       var dim = active.dimension;
-    //       // test if point is within extents for each active brush
-    //       return dim.type.within(d[dim.key], active.extent, dim);
-    //     })) {
-    //     return true;
-    //   }
-    // });
-
-    // console.log(selected);
-
-
-
-
-    // var actives = dimensions.filter(function(p) { 
-    //     return true;
-    // });
-    // var extents = actives.map(function(p) {
-    //     return y[p].brush.selection();
-    // });
-    // foreground.style("display", function(d) {
-    //     return actives.every(function(p, i) {
-    //         return extents[i][0] <= d[p] && d[p] <= extents[i][1];
-    //     }) ? null : "none";
-    // });
-
-    // parallelCoordinatesSVG.selectAll(".axis .brush")
-    //   .filter(function(d) {
-    //     return d3.brushSelection(this);
-    //   })
-    //   .each(function(d) {
-    //     actives.push({
-    //       dimension: d,
-    //       extent: d3.brushSelection(this)
-    //     });
-    //   });
-
-    // foreground.style("display", function(d) {
-    //     return actives.every(function(p, i) {
-    //         return extents[i][0] <= d[p] && d[p] <= extents[i][1];
-    //     }) ? null : "none";
-    // });
-
 }
 
 
@@ -316,7 +260,11 @@ var drawScatterPlotMatrix = function (data, svgIn, featuresIn, classIn, sizeIn){
         .attr("width", size * n + padding)
         .attr("height", size * n + padding)
         .append("g")
-        .attr("transform", "translate(" + padding + "," + padding / 2 + ")");
+        .attr("transform", "translate(" + padding + "," + padding / 2 + ")")
+        .call(d3.zoom().on("zoom", function () {
+            svg.attr("transform", d3.event.transform)
+        }));
+        //.on("dblclick.zoom", null); //disable double click to zoom;
 
     svg.selectAll(".x.axis")
         .data(featuresIn)

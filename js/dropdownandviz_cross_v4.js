@@ -86,8 +86,6 @@ var waveCSVdata=d3.csvParse(waveCSV,
                             });
 
 
-
-
 var drawPC=function(wavedata, svg, theKeys){
     
     theMaxValueOfPC = 0.0;
@@ -144,21 +142,29 @@ var drawPC=function(wavedata, svg, theKeys){
             return "translate(" + x(d) + ")"; 
         });
 
-    // // Add an axis and title.
+    // Add an axis and title.
     g.append("svg:g")
         .attr("class", "axis")
         .each(function(d) { 
-            // d3.select(this).call(axis.scale(y[d]));
             d3.select(this).call(d3.axisRight(y[d]));
         })
         // .each(function(d) { d3.select(this).call( d3.axisLeft(y[d]) ); })
         .append("svg:text")
         .style("text-anchor", "middle")
         .attr("y", -9)
+        .attr("x", 13)
+        .attr("fill", "#000")
+        // .each(function(d) {
+        //     // 
+        //     this.attr("onclick", "alert('" + d + "')")
+        // })
+
+        
         // .text(String);
         .text(function(d) { return d; });
 
-    g.append("g")
+
+    g.append("svg:g")
       .attr("class", "brush")
       .each(function(d) {
         d3.select(this).call(d.brush = 
@@ -188,21 +194,11 @@ function brushstart() {
     d3.event.sourceEvent.stopPropagation();
     foreground.style("display", "none");
 
+
 }
 
 
-
-function scaleThePCExtentValue(extent) {
-    // var t = (height - extent);
-    var r = parseFloat(theMaxValueOfPC / height) * parseFloat(extent);
-
-    r =  parseFloat(theMaxValueOfPC - r);
-
-    return r;
-}
-
-
-function compare(dim, extent) {
+function pcBrushCompare(dim, extent) {
     var e0 = parseFloat(theMaxValueOfPC) - (parseFloat(theMaxValueOfPC / height) * parseFloat(extent[0]));
     var e1 = parseFloat(theMaxValueOfPC) - (parseFloat(theMaxValueOfPC / height) * parseFloat(extent[1]));
 
@@ -225,67 +221,14 @@ function brush() {
         });
       });
 
-    // console.log(actives);
     foreground.style("display", function(d) {
-        // console.log("D:")
-        // console.log(d)
         return actives.every(function(p, i) {
-            
-            // var dim = p.dimension;
-            // return within(d[dim], p.extent, dim);
-
-            
-            return compare(d[p.dimension], p.extent);
-            // return scaleThePCExtentValue(p.extent[0]) <= parseFloat(d[p.dimension]) && parseFloat(d[p.dimension]) <= scaleThePCExtentValue(p.extent[1]);
+            return pcBrushCompare(d[p.dimension], p.extent);
 
         }) ? null : "none";
     });
-
-    // var selected = waveCSVdata.filter(function(d) {
-    //   if (actives.every(function(active) {
-    //       var dim = active.dimension;
-    //       // test if point is within extents for each active brush
-    //       return dim.type.within(d[dim.key], active.extent, dim);
-    //     })) {
-    //     return true;
-    //   }
-    // });
-
-    // console.log(selected);
-
-
-
-
-    // var actives = dimensions.filter(function(p) { 
-    //     return true;
-    // });
-    // var extents = actives.map(function(p) {
-    //     return y[p].brush.selection();
-    // });
-    // foreground.style("display", function(d) {
-    //     return actives.every(function(p, i) {
-    //         return extents[i][0] <= d[p] && d[p] <= extents[i][1];
-    //     }) ? null : "none";
-    // });
-
-    // parallelCoordinatesSVG.selectAll(".axis .brush")
-    //   .filter(function(d) {
-    //     return d3.brushSelection(this);
-    //   })
-    //   .each(function(d) {
-    //     actives.push({
-    //       dimension: d,
-    //       extent: d3.brushSelection(this)
-    //     });
-    //   });
-
-    // foreground.style("display", function(d) {
-    //     return actives.every(function(p, i) {
-    //         return extents[i][0] <= d[p] && d[p] <= extents[i][1];
-    //     }) ? null : "none";
-    // });
-
 }
+
 
 var drawScatterPlotMatrix = function (data, svgIn, featuresIn, classIn, sizeIn){
 
@@ -328,7 +271,11 @@ var drawScatterPlotMatrix = function (data, svgIn, featuresIn, classIn, sizeIn){
         .attr("width", size * n + padding)
         .attr("height", size * n + padding)
         .append("g")
-        .attr("transform", "translate(" + padding + "," + padding / 2 + ")");
+        .attr("transform", "translate(" + padding + "," + padding / 2 + ")")
+        .call(d3.zoom().on("zoom", function () {
+            svg.attr("transform", d3.event.transform)
+        }));
+        //.on("dblclick.zoom", null); //disable double click to zoom;
 
     svg.selectAll(".x.axis")
         .data(featuresIn)
