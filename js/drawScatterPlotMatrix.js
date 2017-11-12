@@ -1,4 +1,3 @@
-
 var drawScatterPlotMatrix = function (dataIn, svgIn, featuresIn, classIn, sizeIn){
 
     var size = sizeIn,
@@ -145,18 +144,18 @@ var drawScatterPlotMatrix = function (dataIn, svgIn, featuresIn, classIn, sizeIn
 
         // draw legend colored rectangles
         legend.append("rect")
-            .attr("x", size + 700 )
-            .attr("y", size - 220 )
+            .attr("x", ((size + padding) * featuresIn.length) - ((padding)*featuresIn.length)+padding)
+            .attr("y", size - 200)
             .attr("width", 80)
             .attr("height", 20)
             .style("fill", color);
 
         // draw legend text
         legend.append("text")
-            .attr("x", size + 740)
-            .attr("y", 20)
+            .attr("x", (4 + ((size + padding) * featuresIn.length) - ((padding)*featuresIn.length)+padding))
+            .attr("y", size - 190)
             .attr("dy", ".35em")
-            .style("text-anchor", "middle")
+            .style("text-anchor", "start")
             .text(function(d) { return "C_CRP Class: " + d;})
     });
 
