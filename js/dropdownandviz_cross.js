@@ -80,21 +80,22 @@ var line = d3.line(),
 
 
 
-var waveCSVdata=d3.csvParse(waveCSV,
-                            function(d){
-                                return d
-                            });
+// var waveCSVdata=d3.csvParse(waveCSV,
+//                             function(d){
+//                                 return d
+//                             });
 
+var loadCSV = function (dataFileName, callback) {
+    d3.csv(dataFileName,function(data) {
+        if (callback != undefined) {
+            callback(data);
+        }
+    });
+}
 
 var drawPC=function(wavedata, svg, theKeys){
     
     thePotValueOfPC = {};
-
-    // svg.brushMode("1D-axes");
-
-    //var theKeys = ["H1DA1", "H1DA2", "H1DA3", "H1DA4", "H1GH1"];
-  
-
     // Extract the list of dimensions and create a scale for each.
     dimensions = theKeys.filter(function(d) {
         return (y[d] = d3.scaleLinear()
@@ -115,13 +116,6 @@ var drawPC=function(wavedata, svg, theKeys){
     });
     x.domain(dimensions)
 
-
-    // x.domain(dimensions = theKeys.filter(function(d) {
-    //     return (y[d] = d3.scaleLinear()
-    //         .domain(d3.extent(wavedata, function(p) { return +p[d]; }))
-    //         .range([height, 0]));
-    // }));
-
     // Add grey background lines for context.
     background = svg.append("svg:g")
         .attr("class", "background")
@@ -136,7 +130,8 @@ var drawPC=function(wavedata, svg, theKeys){
         .selectAll("path")
         .data(wavedata)
         .enter().append("svg:path")
-        .attr("d", path);
+        .attr("d", path)
+        .style("stroke-opacity", "0.05");
 
     // Add a group element for each dimension.
     var g = svg.selectAll(".dimension")
@@ -424,11 +419,15 @@ $( document ).ready(function() {
             }
         }
         
-        drawPC(waveCSVdata, parallelCoordinatesSVG, theKeys);
 
         var classIn = ["C_CRP"];
         var sizeIn = 230;
-        drawScatterPlotMatrix(waveCSVdata, "#w1", theKeys, classIn, sizeIn);
+        var scatterPlotId = "#w1"
+
+        loadCSV("/data/cross_wave_v2.csv", function(data) {
+            drawPC(data, parallelCoordinatesSVG, theKeys);
+            drawScatterPlotMatrix(data, scatterPlotId, theKeys, classIn, sizeIn);
+        });
     });
 
     

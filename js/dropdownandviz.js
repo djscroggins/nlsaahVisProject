@@ -1,4 +1,3 @@
-
 var wavequestions_data = eval(wave_questions); 
 
 var genreateSelector = function(sectionDiv, index) {
@@ -17,9 +16,9 @@ var genreateSelector = function(sectionDiv, index) {
             option.text = sectionkey;
             selectList_sectionlevel.appendChild(option);                 
     }
-        
+    
     // $("#" + NAME).change(function () {
-        
+    
     $("#section_dropdown" + index).change(function () {         
         //Create and append select list
         var section = this.value;
@@ -46,9 +45,9 @@ var genreateSelector = function(sectionDiv, index) {
 }
 
 var questionvaluefunction=function(obj){
-       // $("question_dropdown"+index).empty();
-        console.log(obj.value);
-    };
+    // $("question_dropdown"+index).empty();
+    console.log(obj.value);
+};
 
 
 
@@ -69,20 +68,16 @@ var line = d3.line(),
 
 
 
-var waveCSVdata=d3.csvParse(waveCSV,
-                            function(d){
-                                return d
-                            });
+var loadCSV = function (dataFileName, callback) {
+    d3.csv(dataFileName,function(data) {
+        if (callback != undefined) {
+            callback(data);
+        }
+    });
+}
 
-
-var drawPC=function(wavedata, svg, theKeys){
-    
+var drawPC=function(wavedata,svg,theKeys) {
     thePotValueOfPC = {};
-
-    // svg.brushMode("1D-axes");
-
-    //var theKeys = ["H1DA1", "H1DA2", "H1DA3", "H1DA4", "H1GH1"];
-  
 
     // Extract the list of dimensions and create a scale for each.
     dimensions = theKeys.filter(function(d) {
@@ -102,16 +97,9 @@ var drawPC=function(wavedata, svg, theKeys){
             }))
             .range([height, 0]));
     });
+
     x.domain(dimensions)
 
-
-    // x.domain(dimensions = theKeys.filter(function(d) {
-    //     return (y[d] = d3.scaleLinear()
-    //         .domain(d3.extent(wavedata, function(p) { return +p[d]; }))
-    //         .range([height, 0]));
-    // }));
-
-    // Add grey background lines for context.
     background = svg.append("svg:g")
         .attr("class", "background")
         .selectAll("path")
@@ -125,7 +113,8 @@ var drawPC=function(wavedata, svg, theKeys){
         .selectAll("path")
         .data(wavedata)
         .enter().append("svg:path")
-        .attr("d", path);
+        .attr("d", path)
+        .style("stroke-opacity", "0.05");
 
     // Add a group element for each dimension.
     var g = svg.selectAll(".dimension")
@@ -142,44 +131,36 @@ var drawPC=function(wavedata, svg, theKeys){
         .each(function(d) { 
             d3.select(this).call(d3.axisRight(y[d]));
         })
-        // .each(function(d) { d3.select(this).call( d3.axisLeft(y[d]) ); })
         .append("svg:text")
         .style("text-anchor", "middle")
         .attr("y", -9)
         .attr("x", 13)
         .attr("fill", "#000")
-        // .each(function(d) {
-        //     // 
-        //     this.attr("onclick", "alert('" + d + "')")
-        // })
-
-        
-        // .text(String);
         .text(function(d) { return d; });
 
 
     g.append("svg:g")
-      .attr("class", "brush")
-      .each(function(d) {
-        d3.select(this).call(d.brush = 
-            d3.brushY(y[d])
-            .extent([[-10,0], [10,height]])
-            .on("start", brushstart)
-            .on("brush", brush)
-            .on("end", brush)
-        )
-      })
-    .selectAll("rect")
-      .attr("x", -8)
-      .attr("width", 16);
-};
-
+        .attr("class", "brush")
+        .each(function(d) {
+            d3.select(this).call(d.brush = 
+                d3.brushY(y[d])
+                .extent([[-10,0], [10,height]])
+                .on("start", brushstart)
+                .on("brush", brush)
+                .on("end", brush)
+            )
+        })
+        .selectAll("rect")
+        .attr("x", -8)
+        .attr("width", 16);
+}
 
 // Returns the path for a given data point.
 function path(d) {
-    return line(dimensions.map(function(p) { 
+    var result = line(dimensions.map(function(p) { 
         return [x(p), y[p](d[p])]; 
     }));
+    return result;
 }
 
 // Handles a brush event, toggling the display of foreground lines.
@@ -187,13 +168,10 @@ function path(d) {
 function brushstart() {
     d3.event.sourceEvent.stopPropagation();
     foreground.style("display", "none");
-
-
 }
 
 
 function pcBrushCompare(dim, val, extent) {
-
     var difference = thePotValueOfPC[dim].max - thePotValueOfPC[dim].min;
 
     var e0 = parseFloat(difference) - (parseFloat(difference / height) * parseFloat(extent[0])) + thePotValueOfPC[dim].min;
@@ -204,19 +182,17 @@ function pcBrushCompare(dim, val, extent) {
 
 
 function brush() {
-
-
     var actives = [];
     d3.selectAll(".brush")
-      .filter(function(d) {
-        return d3.brushSelection(this);
-      })
-      .each(function(d) {
-        actives.push({
-          dimension: d,
-          extent: d3.brushSelection(this)
+        .filter(function(d) {
+            return d3.brushSelection(this);
+        })
+        .each(function(d) {
+            actives.push({
+                dimension: d,
+                extent: d3.brushSelection(this)
+            });
         });
-      });
 
     foreground.style("display", function(d) {
         return actives.every(function(p, i) {
@@ -392,11 +368,15 @@ $( document ).ready(function() {
         }
         
 
-        drawPC(waveCSVdata, parallelCoordinatesSVG, theKeys);
-
         var classIn = ["C_CRP"];
         var sizeIn = 230;
-        drawScatterPlotMatrix(waveCSVdata, "#w1", theKeys, classIn, sizeIn);
+        var scatterPlotId = "#w1"
+        // var parallelCoordinatesId = "pc"
+
+        loadCSV(csvFilePath, function(data) {
+            drawPC(data, parallelCoordinatesSVG, theKeys);
+            drawScatterPlotMatrix(data, scatterPlotId, theKeys, classIn, sizeIn);
+        });
     });
 
     
