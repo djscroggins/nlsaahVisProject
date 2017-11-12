@@ -2,37 +2,26 @@
 var wavequestions_data = eval(wave_questions); 
 
 var genreateSelector = function(sectionDiv, index,wave) {
-	var section_group = document.getElementById(sectionDiv);
+    var section_group = document.getElementById(sectionDiv);
 
-	// var selectList_sectionlevel = document.createElement("select");
-	// selectList_sectionlevel.id = "section_dropdown" + index;
-    if($("#" + "section_dropdown"+index).length == 0){
-            var selectList_sectionlevel = document.createElement("select");
-            selectList_sectionlevel.id = "section_dropdown"+index;
-    }
-    else{
-            var selectList_sectionlevel=document.getElementById("section_dropdown"+index);
-            $("#section_dropdown"+index).empty();
-            if($("#" + "question_dropdown"+index).length != 0){
-                 $("#question_dropdown"+index).remove();
-            }
-    }
-	section_group.appendChild(selectList_sectionlevel);
+    var selectList_sectionlevel = document.createElement("select");
+    selectList_sectionlevel.id = "section_dropdown" + index;
+    section_group.appendChild(selectList_sectionlevel);
     var unselected_option = document.createElement("option");
     unselected_option.value = "no selected";
     unselected_option.text="no selected";
     selectList_sectionlevel.appendChild(unselected_option);
     selectList_sectionlevel.setAttribute("onchange","questionvaluefunction(this,"+index+",'"+wave+"','"+sectionDiv+"')")
-	for (var sectionkey in wavequestions_data[wave]) {
-		    var option = document.createElement("option");
-		    option.value = sectionkey;
-		    option.text = sectionkey;
-		    selectList_sectionlevel.appendChild(option);				 
-	}
-		
+    for (var sectionkey in wavequestions_data[wave]) {
+            var option = document.createElement("option");
+            option.value = sectionkey;
+            option.text = sectionkey;
+            selectList_sectionlevel.appendChild(option);                 
+    }
+        
     // $("#" + NAME).change(function () {
         
-	// $("#section_dropdown" + index).change();
+    // $("#section_dropdown" + index).change();
 }
 
 var sessionvaluefunction=function(obj,index,dropdown_wavediv){
@@ -46,7 +35,7 @@ var sessionvaluefunction=function(obj,index,dropdown_wavediv){
 
 var questionvaluefunction=function(obj,index,wave,section_dropdown){
        // $("question_dropdown"+index).empty();
-		        
+                
         //Create and append select list
         var section = obj.value;
         if($("#" + "question_dropdown"+index).length == 0){
@@ -70,7 +59,7 @@ var questionvaluefunction=function(obj,index,wave,section_dropdown){
             selectList_questionlevel.appendChild(option);                
         }
       
-	};
+    };
 
 
 
@@ -99,7 +88,7 @@ var waveCSVdata=d3.csvParse(waveCSV,
 
 var drawPC=function(wavedata, svg, theKeys){
     
-    theMaxValueOfPC = 0.0;
+    thePotValueOfPC = {};
 
     // svg.brushMode("1D-axes");
 
@@ -110,17 +99,22 @@ var drawPC=function(wavedata, svg, theKeys){
     dimensions = theKeys.filter(function(d) {
         return (y[d] = d3.scaleLinear()
             .domain(d3.extent(wavedata, function(p) { 
-                if (theMaxValueOfPC < p[d]) {
-                    theMaxValueOfPC = p[d];
+                if (thePotValueOfPC[d] == undefined) {
+                    thePotValueOfPC[d] = {'max':parseFloat(p[d]), 'min':parseFloat(p[d])};
                 }
+
+                if (thePotValueOfPC[d].max < parseFloat(p[d])) {
+                    thePotValueOfPC[d].max = parseFloat(p[d]);
+                } else if (thePotValueOfPC[d].min > parseFloat(p[d])) {
+                    thePotValueOfPC[d].min = parseFloat(p[d]);
+                }
+
                 return +p[d];
             }))
             .range([height, 0]));
     });
     x.domain(dimensions)
 
-
-    theMaxValueOfPC = parseFloat(theMaxValueOfPC);
 
     // x.domain(dimensions = theKeys.filter(function(d) {
     //     return (y[d] = d3.scaleLinear()
@@ -209,11 +203,14 @@ function brushstart() {
 }
 
 
-function pcBrushCompare(dim, extent) {
-    var e0 = parseFloat(theMaxValueOfPC) - (parseFloat(theMaxValueOfPC / height) * parseFloat(extent[0]));
-    var e1 = parseFloat(theMaxValueOfPC) - (parseFloat(theMaxValueOfPC / height) * parseFloat(extent[1]));
+function pcBrushCompare(dim, val, extent) {
 
-    return e1 <= parseFloat(dim) && parseFloat(dim) <= e0;
+    var difference = thePotValueOfPC[dim].max - thePotValueOfPC[dim].min;
+
+    var e0 = parseFloat(difference) - (parseFloat(difference / height) * parseFloat(extent[0])) + thePotValueOfPC[dim].min;
+    var e1 = parseFloat(difference) - (parseFloat(difference / height) * parseFloat(extent[1])) + thePotValueOfPC[dim].min;
+
+    return e1 <= parseFloat(val) && parseFloat(val) <= e0;
 }
 
 
@@ -234,8 +231,7 @@ function brush() {
 
     foreground.style("display", function(d) {
         return actives.every(function(p, i) {
-            return pcBrushCompare(d[p.dimension], p.extent);
-
+            return pcBrushCompare(p.dimension, d[p.dimension], p.extent);
         }) ? null : "none";
     });
 }
