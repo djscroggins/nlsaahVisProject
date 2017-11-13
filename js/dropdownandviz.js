@@ -53,7 +53,7 @@ var questionvaluefunction=function(obj){
 
 
 var margin = {top: 30, right: 10, bottom: 10, left: 10},
-    width = 960 - margin.left - margin.right,
+    width = 1350 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 var x = d3.scaleBand().range([0, width], 1),
@@ -201,7 +201,6 @@ function brush() {
     });
 }
 
-
 var drawScatterPlotMatrix = function (data, svgIn, featuresIn, classIn, sizeIn){
 
     var size = sizeIn,
@@ -222,7 +221,8 @@ var drawScatterPlotMatrix = function (data, svgIn, featuresIn, classIn, sizeIn){
         .scale(y)
         .ticks(6);
 
-   
+    var xJitter = function(d) { return (x(d)) + Math.random()*2.5};
+
     var domainByTrait = {},
         n = featuresIn.length;
 
@@ -246,8 +246,12 @@ var drawScatterPlotMatrix = function (data, svgIn, featuresIn, classIn, sizeIn){
         .attr("transform", "translate(" + padding + "," + padding / 2 + ")")
         .call(d3.zoom().on("zoom", function () {
             svg.attr("transform", d3.event.transform)
-        }));
-        //.on("dblclick.zoom", null); //disable double click to zoom;
+        }))
+        //Double click to reset zoom
+        .on("dblclick.zoom", function () {
+            svg.attr("transform", d3.zoomIdentity)
+        });
+
 
     svg.selectAll(".x.axis")
         .data(featuresIn)
@@ -295,7 +299,7 @@ var drawScatterPlotMatrix = function (data, svgIn, featuresIn, classIn, sizeIn){
         cell.selectAll("circle")
             .data(data)
             .enter().append("circle")
-            .attr("cx", function(d) { return x(d[p.x]); })
+            .attr("cx", function(d) { return xJitter(d[p.x]); })
             .attr("cy", function(d) { return y(d[p.y]); })
             .attr("r", 4)
             .style("fill", function(d) { return color(d[classIn[0]]); });
@@ -332,6 +336,27 @@ var drawScatterPlotMatrix = function (data, svgIn, featuresIn, classIn, sizeIn){
         if (e === null) svg.selectAll(".hidden").classed("hidden", false);
     }
 
+    var legend = svg.selectAll(".legend")
+        .data(color.domain())
+        .enter().append("g")
+        .attr("class", "legend")
+        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+    // draw legend colored rectangles
+    legend.append("rect")
+        .attr("x", ((size + padding) * featuresIn.length) - ((padding)*featuresIn.length)+padding)
+        .attr("y", size - 200)
+        .attr("width", 80)
+        .attr("height", 20)
+        .style("fill", color);
+
+    // draw legend text
+    legend.append("text")
+        .attr("x", (4 + ((size + padding) * featuresIn.length) - ((padding)*featuresIn.length)+padding))
+        .attr("y", size - 190)
+        .attr("dy", ".35em")
+        .style("text-anchor", "start")
+        .text(function(d) { return "C_CRP Class: " + d;})
 
     function cross(a, b) {
         var c = [], n = a.length, m = b.length, i, j;
