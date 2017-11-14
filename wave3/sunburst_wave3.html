@@ -23,7 +23,6 @@
                 .domain(legVals)
                 .range(["#980297", "#D42E31", "#FE812A", "#30A033", "#9367BB", "#8B574D"]),
             divClass: ".legend3",
-//            offset: 235,
             svgDims: {width: 200, height: 145}
         };
 
@@ -35,7 +34,6 @@
     <svg id="wave3"></svg>
 
     <script>
-//        drawSuburstBilevelPartition("../data/wave3.json", "#wave3");
         var SBW3 = SunburstBiLevel();
         SBW3.drawSunburstBiLevel("../data/wave3.json", "#wave3")
     </script>
@@ -44,11 +42,9 @@
 <div>
     <svg id="button"></svg>
     <script>
-        drawLinkedButton("#button", 960, 200, 100, 200, "wave3placeholder.html", "Explore Wave 3");
+        drawLinkedButton("#button", 960, 200, 100, 200, "explore_wave3.html", "Explore Wave 3");
     </script>
 </div>
 
 </body>
 </html>
-
-<!--TODO: Change to wave2.json-->
