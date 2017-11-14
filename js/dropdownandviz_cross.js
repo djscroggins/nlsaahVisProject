@@ -262,8 +262,9 @@ $( document ).ready(function() {
     }
 
     document.getElementById("dropdown_go_button").addEventListener("click", function(){
-        //document.getElementById("demo").innerHTML = "Hello World";
         document.getElementById("pc").innerHTML = "";
+        document.getElementById("w1").innerHTML = "";
+        //d3.selectAll("svg>*").remove();
         var parallelCoordinatesSVG = d3.select("#pc").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
