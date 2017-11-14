@@ -2,12 +2,13 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: auto;
     position: relative;
-    width: 960px;
+    width: 1350px;
 }
 
 #spm svg {
     font: 10px sans-serif;
-    padding: 10px;
+    width: 1350px;
+    padding: 15px;
 }
 
 #spm .axis,
@@ -35,11 +36,18 @@
 }
 
 #spm  circle {
-    fill-opacity: .7;
+    fill-opacity: .30;
+    stroke: #000;
+    stroke-opacity: .05;
+    stroke-width: .025%;
 }
 
 #spm circle.hidden {
     fill: #ccc !important;
+}
+
+#spm rect {
+    fill-opacity: .60;
 }
 
 #spm .extent {

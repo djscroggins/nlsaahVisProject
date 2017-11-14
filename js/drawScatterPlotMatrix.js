@@ -1,4 +1,3 @@
-
 var drawScatterPlotMatrix = function (dataIn, svgIn, featuresIn, classIn, sizeIn){
 
     var size = sizeIn,
@@ -18,6 +17,8 @@ var drawScatterPlotMatrix = function (dataIn, svgIn, featuresIn, classIn, sizeIn
     var yAxis = d3.axisLeft()
         .scale(y)
         .ticks(6);
+
+    var xJitter = function(d) { return (x(d)) + Math.random()*2.5};
 
     d3.csv(dataIn, function(error, data) {
         if (error) throw error;
@@ -42,7 +43,15 @@ var drawScatterPlotMatrix = function (dataIn, svgIn, featuresIn, classIn, sizeIn
             .attr("width", size * n + padding)
             .attr("height", size * n + padding)
             .append("g")
-            .attr("transform", "translate(" + padding + "," + padding / 2 + ")");
+            .attr("transform", "translate(" + padding + "," + padding / 2 + ")")
+            .call(d3.zoom().on("zoom", function () {
+                svg.attr("transform", d3.event.transform)
+            }))
+            //Double click to reset zoom
+             .on("dblclick.zoom", function () {
+                 svg.attr("transform", d3.zoomIdentity)
+             });
+
 
         svg.selectAll(".x.axis")
             .data(featuresIn)
@@ -90,7 +99,7 @@ var drawScatterPlotMatrix = function (dataIn, svgIn, featuresIn, classIn, sizeIn
             cell.selectAll("circle")
                 .data(data)
                 .enter().append("circle")
-                .attr("cx", function(d) { return x(d[p.x]); })
+                .attr("cx", function(d) { return xJitter(d[p.x]); })
                 .attr("cy", function(d) { return y(d[p.y]); })
                 .attr("r", 4)
                 .style("fill", function(d) { return color(d[classIn[0]]); });
@@ -126,6 +135,28 @@ var drawScatterPlotMatrix = function (dataIn, svgIn, featuresIn, classIn, sizeIn
             var e = d3.brushSelection(this);
             if (e === null) svg.selectAll(".hidden").classed("hidden", false);
         }
+
+        var legend = svg.selectAll(".legend")
+            .data(color.domain())
+            .enter().append("g")
+            .attr("class", "legend")
+            .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+        // draw legend colored rectangles
+        legend.append("rect")
+            .attr("x", ((size + padding) * featuresIn.length) - ((padding)*featuresIn.length)+padding)
+            .attr("y", size - 200)
+            .attr("width", 80)
+            .attr("height", 20)
+            .style("fill", color);
+
+        // draw legend text
+        legend.append("text")
+            .attr("x", (4 + ((size + padding) * featuresIn.length) - ((padding)*featuresIn.length)+padding))
+            .attr("y", size - 190)
+            .attr("dy", ".35em")
+            .style("text-anchor", "start")
+            .text(function(d) { return "C_CRP Class: " + d;})
     });
 
     function cross(a, b) {
