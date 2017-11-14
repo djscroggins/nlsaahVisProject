@@ -46,7 +46,7 @@ var Sunburst = function () {
                     .style("fill", function (d) {
                         return d.data.name === "top" ? "white" : color((d.children ? d : d.parent).data.name); })
                     .on("click", function (d) {
-                        d.data.name === "top" ? window.open("waves_cross/waves_cross_placeholder.html") :
+                        d.data.name === "top" ? window.open("waves_cross/explore_waves_cross.html") :
                         pattern.test(d.data.name) ? window.open(d.data.link) :
                         null;
                     })
@@ -78,7 +78,7 @@ var Sunburst = function () {
                                null;
                     })
                     .on("click", function (d) {
-                        d.data.name === "top" ? window.open("waves_cross/waves_cross_placeholder.html") :
+                        d.data.name === "top" ? window.open("waves_cross/explore_waves_cross.html") :
                         pattern.test(d.data.name) ? window.open(d.data.link) :
                         null;
                     });
