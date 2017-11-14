@@ -5,7 +5,7 @@
     <title>Sunburst - Top Level</title>
     <!--<script src="https://d3js.org/d3.v3.min.js"></script>-->
     <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script type="text/javascript" src="js/sunburst_top_refactor.js"></script>
+    <script type="text/javascript" src="js/sunburst_top.js"></script>
     <link rel="stylesheet" href="css/sunburst.css">
     <link rel="stylesheet" href="css/general.css">
 
@@ -19,7 +19,6 @@
 </div>
 
 <script>
-//    drawSunburst("data/top_level.json", "#top", ".topInput", 960, 1000);
     var SB = Sunburst();
     var dimensions = {width: 960, height: 1000};
     SB.drawSunburst("data/top_level.json", "#top", ".topInput", dimensions);
